@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { brand, contact, messages, serviceOrder, services } from "@/content/site";
+import { brand, contact, credits, messages, serviceOrder, services } from "@/content/site";
 import { photos } from "@/content/images";
 import { whatsappUrl } from "@/lib/whatsapp";
 
@@ -24,7 +24,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {serviceOrder.map((id) => (
                 <li key={id}>
-                  <a href={`#${services[id].anchor}`} className="inline-block py-1 hover:underline hover:underline-offset-4">
+                  <a href={`/#${services[id].anchor}`} className="inline-block py-1 hover:underline hover:underline-offset-4">
                     {services[id].kind}
                   </a>
                 </li>
@@ -75,11 +75,25 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-2 border-t border-creme/15 pt-6 text-[0.9rem] text-creme/60 sm:flex-row sm:justify-between">
-          <p>
-            © {brand.name}, de {brand.owner}
-          </p>
-          {hasProvisionalPhotos ? <p>As fotos deste site são ilustrativas.</p> : null}
+        <div className="mt-20 flex flex-col gap-x-8 gap-y-3 border-t border-creme/15 pt-6 text-[0.9rem] text-creme/60 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-x-8 gap-y-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <p>
+              © {brand.name}, de {brand.owner}
+            </p>
+            <Link href="/privacidade" className="py-1 hover:text-creme hover:underline hover:underline-offset-4">
+              Privacidade e cookies
+            </Link>
+            {hasProvisionalPhotos ? <p>As fotos deste site são ilustrativas.</p> : null}
+          </div>
+          <a
+            href={credits.url}
+            target="_blank"
+            rel="noopener"
+            className="group inline-flex items-center gap-1.5 py-1 hover:text-creme"
+          >
+            Desenvolvido por
+            <span className="font-medium text-creme underline-offset-4 group-hover:underline">{credits.studio}</span>
+          </a>
         </div>
       </div>
     </footer>

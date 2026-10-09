@@ -23,6 +23,15 @@ export const contact = {
   serviceArea: ["Campinas", "Cidade de São Paulo", "Interior de São Paulo"],
 } as const;
 
+/** Crédito de desenvolvimento, no rodapé. */
+export const credits = {
+  studio: "Senerine.dev",
+  url: "https://senerinedev.vercel.app/pt",
+} as const;
+
+/** Data da última revisão da política de privacidade e cookies. */
+export const privacyUpdatedAt = "9 de outubro de 2026";
+
 /** Mensagens pré-preenchidas, uma por caminho de contato. */
 export const messages = {
   geral: "Olá! Vim pelo site da Doce e Sabor e gostaria de mais informações.",
