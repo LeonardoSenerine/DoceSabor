@@ -29,7 +29,36 @@ export const metadata: Metadata = {
   description: brand.description,
   applicationName: brand.name,
   authors: [{ name: brand.owner }],
+  creator: brand.owner,
+  publisher: brand.name,
+  category: "food",
+  keywords: [
+    "marmitas congeladas",
+    "marmita fit",
+    "marmita low-carb",
+    "marmita vegetariana",
+    "kit de marmitas",
+    "cozinheira particular",
+    "cozinheira em casa",
+    "buffet de feijoada",
+    "feijoada para eventos",
+    "Campinas",
+    "São Paulo",
+    "interior de São Paulo",
+    brand.owner,
+  ],
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -43,11 +72,24 @@ export const metadata: Metadata = {
     title,
     description: brand.description,
   },
-  formatDetection: { telephone: false },
+  // Defina GOOGLE_SITE_VERIFICATION com o código do Google Search Console, quando houver.
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
+  appleWebApp: { title: brand.name, statusBarStyle: "default" },
+  formatDetection: { telephone: false, email: false, address: false },
+  other: {
+    // Área de atendimento confirmada: Campinas, capital e interior de São Paulo.
+    "geo.region": "BR-SP",
+    "geo.placename": "Campinas, São Paulo",
+  },
 };
 
 export const viewport: Viewport = {
   themeColor: "#fcf1e1",
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
 };
 
 /**
