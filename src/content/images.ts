@@ -20,7 +20,7 @@ export type Photo = {
 };
 
 const unsplash = (id: string) =>
-  `https://images.unsplash.com/${id}?fm=jpg&q=80&w=2400&fit=max`;
+  `https://images.unsplash.com/${id}?fm=jpg&q=80&w=1800&fit=max`;
 
 export const photos = {
   hero: {
@@ -40,18 +40,20 @@ export const photos = {
     focus: "50% 45%",
   },
   fit: {
-    src: unsplash("photo-1669490884223-ca6ca27c8766"),
-    alt: "Prato com frango grelhado, berinjela, abobrinha, pimentão, cenoura e brócolis",
-    width: 3575,
-    height: 3903,
+    src: unsplash("photo-1505576633757-0ac1084af824"),
+    alt: "Prato colorido de folhas, legumes e grãos sobre uma tábua de madeira",
+    width: 3446,
+    height: 4595,
     provisional: true,
+    focus: "50% 55%",
   },
   lowCarb: {
-    src: unsplash("photo-1582429058754-7af6ca025717"),
-    alt: "Prato branco com ovos, brócolis, tomates e frango",
-    width: 3620,
-    height: 3620,
+    src: unsplash("photo-1490645935967-10de6ba17061"),
+    alt: "Prato com ovo pochê, legumes e tomates sobre uma mesa de madeira",
+    width: 5503,
+    height: 3745,
     provisional: true,
+    focus: "45% 50%",
   },
   vegetariana: {
     src: unsplash("photo-1714062105923-5cb2a3a07499"),

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { E_PATH, RING_PATH } from "@/components/brand/marks";
 import { brand } from "@/content/site";
 
-export const alt = `${brand.name} — ${brand.signature}`;
+export const alt = `${brand.name}: ${brand.signature}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

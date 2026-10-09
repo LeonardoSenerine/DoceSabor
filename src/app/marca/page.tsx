@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Wordmark } from "@/components/brand/Wordmark";
+import { Ficha, Stamp, Tape, TapeStrip } from "@/components/brand/kitchen";
 import { BayLeaf, BrandSymbol, Frost, HandArrow, HandRing, Leaf, Steam } from "@/components/brand/marks";
 import { brand } from "@/content/site";
 
@@ -38,7 +39,7 @@ const palettes: { title: string; note: string; swatches: Swatch[] }[] = [
   },
   {
     title: "Vanda Camargo",
-    note: "Mostarda é a luz da cozinha de casa. Sobre ela, só café — nunca branco.",
+    note: "Mostarda é a luz da cozinha de casa. Sobre ela, só café, nunca branco.",
     swatches: [
       { name: "Mostarda", hex: "#F2A922", role: "Campo principal" },
       { name: "Mostarda clara", hex: "#FBE4B4", role: "Superfícies de apoio" },
@@ -93,7 +94,7 @@ export default function MarcaPage() {
 
         <Block
           title="O símbolo"
-          intro="O “e” de Doce e Sabor é a conjunção que junta as coisas: rotina e festa, casa e mesa, quem cozinha e quem come. Ele é escrito à mão dentro de um traço circular — a borda de um prato visto de cima e o círculo de caneta que marca o que importa num caderno de receitas."
+          intro="O “e” de Doce e Sabor é a conjunção que junta as coisas: rotina e festa, casa e mesa, quem cozinha e quem come. Ele é escrito à mão dentro de um traço circular: a borda de um prato visto de cima e o círculo de caneta que marca o que importa num caderno de receitas."
         >
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="flex aspect-square items-center justify-center bg-cafe text-mostarda">
@@ -115,7 +116,7 @@ export default function MarcaPage() {
 
         <Block
           title="Logotipo"
-          intro="Fraunces seminegrito, com o “e” em itálico leve: a conjunção muda de voz porque é ela que dá sentido ao nome. Abaixo, as assinaturas de cada frente — mesma marca, um fio de cor e o nome da frente."
+          intro="Fraunces seminegrito, com o “e” em itálico leve: a conjunção muda de voz porque é ela que dá sentido ao nome. Abaixo, as assinaturas de cada frente: mesma marca, um fio de cor e o nome da frente."
         >
           <div className="space-y-6">
             <div className="flex min-h-56 items-center justify-center bg-papel px-6 text-[2.2rem] sm:text-[3.4rem]">
@@ -169,24 +170,85 @@ export default function MarcaPage() {
         >
           <div className="space-y-10">
             <div>
-              <p className="text-[0.9rem] text-cafe-suave">Fraunces — voz de cartaz (SOFT 100, WONK 1)</p>
-              <p className="display-voice mt-2 text-[clamp(3.5rem,8vw,6.5rem)] font-semibold">cuidado. 7 14 21</p>
+              <p className="text-[0.9rem] text-cafe-suave">Fraunces, voz de cartaz (SOFT 100, WONK 1)</p>
+              <p className="display-voice mt-2 text-[clamp(3.5rem,8vw,6.5rem)] font-semibold">cuidado. 200</p>
             </div>
             <div>
-              <p className="text-[0.9rem] text-cafe-suave">Fraunces — títulos de seção (500)</p>
+              <p className="text-[0.9rem] text-cafe-suave">Fraunces, títulos de seção (500)</p>
               <p className="mt-2 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.02em]">
                 Mesa farta. Gente reunida.
               </p>
             </div>
             <div>
-              <p className="text-[0.9rem] text-cafe-suave">Fraunces itálico — anotação de caderno</p>
+              <p className="text-[0.9rem] text-cafe-suave">Fraunces itálico, anotação de caderno</p>
               <p className="note mt-2 text-[1.6rem]">comida de verdade, feita para estar à mesa</p>
             </div>
             <div>
-              <p className="text-[0.9rem] text-cafe-suave">DM Sans — texto, navegação, botões (17px / 1,6)</p>
+              <p className="text-[0.9rem] text-cafe-suave">DM Sans, texto, navegação e botões (17px / 1,6)</p>
               <p className="mt-2 max-w-[36rem]">
-                Refeições prontas em kits de 7, 14 ou 21, para ter comida de verdade nos dias em que não dá tempo de
+                Kits montados do seu jeito, para ter comida de verdade nos dias em que não dá tempo de
                 cozinhar. Linhas curtas, frases diretas, sem caixa-alta.
+              </p>
+            </div>
+          </div>
+        </Block>
+
+        <Block
+          title="Marcas de uso"
+          intro="A linguagem gráfica vem de objetos que existem na cozinha de quem faz marmita. Cada um tem uma função, e só aparece quando essa função existe."
+        >
+          <div className="grid gap-10 md:grid-cols-2">
+            <div>
+              <div className="flex min-h-40 items-center justify-center gap-6 bg-papel px-6">
+                <Tape tilt={-3} className="text-[1.25rem]">
+                  Low-carb
+                </Tape>
+                <Tape tilt={2}>foto ilustrativa</Tape>
+              </div>
+              <p className="mt-4 font-semibold">Fita crepe</p>
+              <p className="text-[0.95rem] text-cafe-suave">
+                A etiqueta do pote que vai ao freezer. Sempre identifica algo: uma categoria, uma foto, uma escolha. Nunca vira
+                botão, nunca decora. No máximo uma por bloco, inclinada entre -4° e 4°.
+              </p>
+            </div>
+            <div>
+              <Ficha kind="ficha" title="Como pedir" rule="bg-verde">
+                <ol>
+                  <li data-margin="1.">Monte o kit.</li>
+                  <li data-margin="2.">Envie pelo WhatsApp.</li>
+                </ol>
+              </Ficha>
+              <p className="mt-4 font-semibold">Ficha pautada</p>
+              <p className="text-[0.95rem] text-cafe-suave">
+                A ficha de preparo. Organiza informação prática (passos, conservação, pedidos). A linha de topo leva a cor da
+                frente; os números ficam do lado de fora da margem, como num caderno.
+              </p>
+            </div>
+            <div>
+              <div className="flex min-h-40 items-center justify-center bg-papel">
+                <Stamp
+                  text="a cozinha da Vanda, em Campinas, São Paulo e interior,"
+                  label="Selo de origem"
+                  className="w-32 -rotate-12 text-cafe"
+                />
+              </div>
+              <p className="mt-4 font-semibold">Selo de origem</p>
+              <p className="text-[0.95rem] text-cafe-suave">
+                O carimbo da cozinha, com a área de atendimento em volta do símbolo. Serve para embalagem, sacola e redes sociais.
+              </p>
+            </div>
+            <div>
+              <div className="flex min-h-40 items-center justify-center bg-papel">
+                <div className="relative w-28 rotate-3 bg-creme p-1.5 shadow-[0_10px_20px_-14px_rgb(59_31_14/0.6)]">
+                  <div className="aspect-[4/5] bg-cafe/70" />
+                  <TapeStrip tilt={-6} className="absolute -top-2 left-3 h-4 w-12" />
+                  <TapeStrip tilt={8} className="absolute -top-2 right-3 h-4 w-12" />
+                </div>
+              </div>
+              <p className="mt-4 font-semibold">Foto impressa</p>
+              <p className="text-[0.95rem] text-cafe-suave">
+                A foto colada na página do caderno. Reservada para momentos pessoais: o hero e a Vanda. Nas marmitas, a foto
+                fica reta, em grade.
               </p>
             </div>
           </div>
@@ -218,23 +280,38 @@ export default function MarcaPage() {
 
         <Block
           title="Molduras"
-          intro="Cada frente tem um jeito de enquadrar a foto. A moldura já diz de qual serviço se trata, antes de qualquer texto."
+          intro="Cada frente enquadra a fotografia de um jeito. A moldura já diz de qual serviço se trata, antes de qualquer texto."
         >
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {[
-              { label: "Institucional", desc: "Círculo: o prato visto de cima.", shape: <div className="aspect-square rounded-full bg-cafe/80" /> },
-              { label: "Marmitas", desc: "Retângulo firme: bandeja, freezer, rotina.", shape: <div className="aspect-[4/3] bg-verde" /> },
               {
-                label: "Vanda",
-                desc: "Retrato vertical sobre um campo mostarda deslocado.",
+                label: "Institucional",
+                desc: "Foto impressa, com margem de papel, presa com fita crepe.",
                 shape: (
-                  <div className="relative aspect-[4/5]">
-                    <div className="absolute top-[14%] -left-2 h-full w-[78%] bg-mostarda" />
-                    <div className="relative ml-auto h-full w-[86%] bg-cafe/70" />
+                  <div className="relative mx-auto w-[70%] rotate-3 bg-papel p-1.5 shadow-[0_10px_20px_-14px_rgb(59_31_14/0.6)]">
+                    <div className="aspect-[4/5] bg-cafe/70" />
+                    <TapeStrip tilt={-6} className="absolute -top-2 left-2 h-4 w-12" />
                   </div>
                 ),
               },
-              { label: "Feijoada", desc: "Sangria: a mesa não cabe na moldura.", shape: <div className="-mx-2 aspect-[21/12] bg-barro" /> },
+              { label: "Marmitas", desc: "Potes lado a lado em grade firme, com etiqueta.", shape: <div className="grid grid-cols-3 gap-1.5">{[0, 1, 2, 3, 4, 5].map((i) => <div key={i} className="aspect-square bg-verde" />)}</div> },
+              {
+                label: "Vanda",
+                desc: "Retrato impresso sobre um campo mostarda deslocado.",
+                shape: (
+                  <div className="relative mx-auto aspect-[4/5] w-[78%]">
+                    <div className="absolute top-[12%] -left-2 h-[80%] w-[70%] bg-mostarda" />
+                    <div className="relative ml-auto h-full w-[86%] -rotate-2 bg-papel p-1.5">
+                      <div className="h-full bg-cafe/80" />
+                    </div>
+                  </div>
+                ),
+              },
+              {
+                label: "Feijoada",
+                desc: "Sangria total, com sombra de brasa sob o título.",
+                shape: <div className="-mx-2 aspect-[21/12] bg-[linear-gradient(to_top,var(--color-brasa),var(--color-barro)_55%,var(--color-terracota))]" />,
+              },
             ].map((frame) => (
               <div key={frame.label}>
                 <div className="flex h-40 items-center">{<div className="w-full">{frame.shape}</div>}</div>
@@ -293,8 +370,9 @@ export default function MarcaPage() {
             {[
               "Alinhamento à esquerda, grade de 12 colunas, assimetria intencional: texto e imagem nunca dividem a tela ao meio.",
               "Um momento de escala por seção. Se o título é enorme, o resto fica quieto.",
-              "Uma cor forte por vez. A cor de cada frente ocupa um campo inteiro — não se espalha em detalhes.",
-              "Cantos retos em fotos e blocos. O único elemento totalmente arredondado é o botão: a borda do prato.",
+              "Uma cor forte por vez. A cor de cada frente ocupa um campo inteiro e não se espalha em detalhes.",
+              "Cantos retos em fotos e blocos. Só os botões são totalmente arredondados: a borda do prato.",
+              "Fita crepe identifica, caneta destaca, ficha organiza. Nenhuma marca de uso aparece sem função.",
               "Numeração só para passos reais (como pedir, como funciona).",
               "Respiro generoso: 96–144 px entre seções no desktop, 96 px no celular.",
             ].map((rule, index) => (

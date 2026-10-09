@@ -28,7 +28,7 @@ export function Wordmark({ className = "", line, ruleClassName = "bg-current" }:
           {line}
         </span>
       ) : null}
-      <span className="sr-only">{line ? `${brand.name} — ${line}` : brand.name}</span>
+      <span className="sr-only">{line ? `${brand.name}, ${line}` : brand.name}</span>
     </span>
   );
 }

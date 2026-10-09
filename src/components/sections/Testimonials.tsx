@@ -17,7 +17,7 @@ export function Testimonials() {
       <section id="depoimentos" aria-labelledby="depoimentos-title" className="border-y border-linha bg-papel py-20 lg:py-24">
         <div className="mx-auto flex max-w-[90rem] flex-col gap-6 px-4 sm:px-8 lg:flex-row lg:items-end lg:justify-between lg:px-12">
           <div className="max-w-[40rem]">
-            <h2 id="depoimentos-title" data-split className="font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.02em] text-balance">
+            <h2 id="depoimentos-title" className="font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.02em] text-balance">
               Veja o que sai da cozinha todos os dias.
             </h2>
             <p className="mt-4 text-cafe-suave">Pratos, kits e eventos aparecem primeiro no Instagram da Doce e Sabor.</p>

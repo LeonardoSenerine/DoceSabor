@@ -51,7 +51,7 @@ export function Photo({
         sizes={sizes}
         preload={preload}
         fetchPriority={preload ? "high" : undefined}
-        className={`object-cover ${imgClassName}`}
+        className={`grade object-cover ${imgClassName}`}
         style={{ objectPosition: photo.focus ?? "50% 50%" }}
         {...imgProps}
       />

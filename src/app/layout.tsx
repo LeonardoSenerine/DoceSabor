@@ -18,13 +18,13 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const title = `${brand.name} — Marmitas congeladas, cozinheira particular e feijoada`;
+const title = `${brand.name} | Marmitas congeladas, cozinheira particular e feijoada`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: `%s — ${brand.name}`,
+    template: `%s | ${brand.name}`,
   },
   description: brand.description,
   applicationName: brand.name,

@@ -15,7 +15,7 @@ export function businessJsonLd() {
   ];
 
   const serviceDescriptions: Record<string, string> = {
-    marmitas: "Refeições congeladas em kits de 7, 14 ou 21: fit, low-carb, vegetarianas, variadas, sopas e saladas frescas.",
+    marmitas: "Refeições congeladas em kits montados sob medida: fit, low-carb, vegetarianas, variadas, sopas e saladas frescas, com cardápio que muda sempre.",
     vanda: "Cozinheira particular que prepara as refeições na residência do cliente.",
     feijoada: `Buffet de feijoada preparado e servido no local do evento, para até ${feijoada.maxGuests} convidados.`,
   };
@@ -38,7 +38,7 @@ export function businessJsonLd() {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: `${brand.name} — ${services[key].line}`,
+          name: `${brand.name}: ${services[key].line}`,
           serviceType: services[key].kind,
           description: serviceDescriptions[key],
           provider: { "@id": id },

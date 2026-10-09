@@ -6,15 +6,15 @@ import { messages } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 /**
- * Atalho persistente para o WhatsApp. Fica escondido enquanto o hero ou o
- * contato final estão na tela — ali já existe um CTA principal e o botão
- * flutuante só competiria com ele.
+ * Atalho persistente para o WhatsApp. Fica escondido onde a página já tem um
+ * CTA principal (hero, montagem do kit, orçamento da feijoada, contato final),
+ * para não competir com ele nem cobrir botões.
  */
 export function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const targets = ["inicio", "contato"]
+    const targets = ["inicio", "monte-seu-kit", "orcamento-feijoada", "contato"]
       .map((id) => document.getElementById(id))
       .concat(document.querySelector("footer"))
       .filter((el): el is HTMLElement => el !== null);

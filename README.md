@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Abra http://localhost:3000. A página `/marca` documenta o sistema de identidade (símbolo, logotipo, cores, tipografia, traço à mão, molduras, fotografia).
+Abra http://localhost:3000. A página `/marca` documenta o sistema de identidade: símbolo, logotipo, cores, tipografia, marcas de uso (fita crepe, ficha pautada, selo, foto impressa), traço à mão, molduras e fotografia.
 
 ## Onde editar
 
@@ -25,7 +25,7 @@ Abra http://localhost:3000. A página `/marca` documenta o sistema de identidade
 Nada abaixo foi inventado; cada item tem um campo pronto em `src/content/site.ts`:
 
 - Fotos reais e o retrato da Vanda (`vanda.portrait`).
-- Preços dos kits (`mealKitPrices`).
+- Valores dos kits sob medida (`kitBuilder.priceNote`).
 - Orientações de aquecimento (`mealStorage.heating`).
 - Itens incluídos no buffet de feijoada (`feijoada.includes`).
 - Depoimentos reais (`testimonials`).

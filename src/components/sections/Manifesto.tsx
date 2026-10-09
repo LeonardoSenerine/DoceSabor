@@ -27,7 +27,7 @@ export function Manifesto() {
             ))}
           </div>
 
-          <p data-split className="mt-16 font-serif text-[clamp(2.4rem,6vw,5.6rem)] leading-[0.95] font-medium tracking-[-0.03em] text-balance text-mostarda lg:mt-24">
+          <p className="mt-16 font-serif text-[clamp(2.4rem,6vw,5.6rem)] leading-[0.95] font-medium tracking-[-0.03em] text-balance text-mostarda lg:mt-24">
             A cozinha é a mesma.
             <br />
             O cuidado também.

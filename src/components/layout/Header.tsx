@@ -44,7 +44,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-6 px-4 sm:px-8 lg:h-20 lg:px-12">
-        <a href="#inicio" className="text-[0.95rem] lg:text-base" aria-label="Doce e Sabor, voltar ao início">
+        <a href="#inicio" className="py-2.5 text-[0.95rem] lg:text-base" aria-label="Doce e Sabor, voltar ao início">
           <Wordmark />
         </a>
 

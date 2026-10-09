@@ -3,7 +3,7 @@ import { brand } from "@/content/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${brand.name} — ${brand.owner}`,
+    name: `${brand.name}, de ${brand.owner}`,
     short_name: brand.name,
     description: brand.description,
     lang: "pt-BR",

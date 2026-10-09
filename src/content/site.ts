@@ -59,7 +59,7 @@ export const services: Record<ServiceId, Service> = {
     navLabel: "Marmitas",
     title: "Sua rotina, bem servida.",
     summary:
-      "Refeições prontas em kits de 7, 14 ou 21, para ter comida de verdade nos dias em que não dá tempo de cozinhar. Fit, low-carb, vegetarianas, variadas, sopas e saladas frescas.",
+      "Kits montados do seu jeito: fit, low-carb, vegetarianas, variadas, sopas e saladas frescas, com cardápio que muda sempre e se adapta ao que você deseja.",
     cta: "Pedir meu kit",
     message: messages.marmitas,
     photo: "marmitas",
@@ -85,10 +85,10 @@ export const services: Record<ServiceId, Service> = {
     navLabel: "Feijoada",
     title: "Mesa farta. Gente reunida.",
     summary:
-      "Buffet de feijoada preparado e servido no local do seu evento, para até 200 convidados.",
+      "Buffet de feijoada preparado e servido no local do evento, para festas particulares e empresas, com até 200 convidados.",
     cta: "Pedir orçamento",
     message: messages.feijoada,
-    photo: "feijoadaPanela",
+    photo: "feijoadaMesa",
   },
 };
 
@@ -107,24 +107,34 @@ export type MealCategory = {
   notes?: string[];
 };
 
+/** Confirmado pela marca: fit, low-carb e vegetarianas têm cardápio rotativo e sob medida. */
+const rotatingMenu = ["Cardápio que muda sempre", "Adaptado ao que você deseja"];
+
+/** Frase de destaque da seção de marmitas. */
+export const mealMenuNote =
+  "O cardápio das marmitas fit, low-carb e vegetarianas muda sempre e se adapta ao que você deseja.";
+
 export const mealCategories: MealCategory[] = [
   {
     id: "fit",
     name: "Fit",
     description: "Para quem quer manter o prato equilibrado mesmo na semana mais corrida.",
     photo: "fit",
+    notes: rotatingMenu,
   },
   {
     id: "low-carb",
     name: "Low-carb",
     description: "Para quem está reduzindo os carboidratos sem abrir mão de comer bem.",
     photo: "lowCarb",
+    notes: rotatingMenu,
   },
   {
     id: "vegetarianas",
     name: "Vegetarianas",
     description: "Refeições sem carne, com o mesmo cuidado de todas as outras.",
     photo: "vegetariana",
+    notes: rotatingMenu,
   },
   {
     id: "variadas",
@@ -147,33 +157,24 @@ export const mealCategories: MealCategory[] = [
   },
 ];
 
-export type MealKit = {
-  meals: 7 | 14 | 21;
-  /** Leitura simples do tamanho, considerando uma refeição por dia. */
-  reading: string;
-};
-
-export const mealKits: MealKit[] = [
-  { meals: 7, reading: "Uma refeição por dia durante uma semana." },
-  { meals: 14, reading: "Almoço e jantar por uma semana, ou duas semanas de almoços." },
-  { meals: 21, reading: "Três semanas de almoços garantidos no freezer." },
-];
-
-/** Preços dos kits — aguardando confirmação. Enquanto `null`, o site orienta a consultar pelo WhatsApp. */
-export const mealKitPrices: Record<MealKit["meals"], string | null> = {
-  7: null,
-  14: null,
-  21: null,
-};
+/** Kit sob medida: o cliente escolhe quantas refeições de cada categoria. */
+export const kitBuilder = {
+  title: "Monte o seu kit.",
+  intro: "Escolha quantas refeições quiser de cada categoria. Não existe tamanho fixo: o kit é do jeito que a sua semana pede.",
+  maxPerCategory: 30,
+  /** Preços: aguardando confirmação. Enquanto `null`, o site orienta a consultar pelo WhatsApp. */
+  priceNote: null as string | null,
+  priceFallback: "Valores combinados pelo WhatsApp, conforme o kit.",
+} as const;
 
 export const mealOrderSteps = [
   {
-    title: "Chame no WhatsApp",
-    text: "Diga que quer um kit de marmitas. A mensagem já vai pronta pelo botão.",
+    title: "Monte o kit aqui",
+    text: "Escolha quantas refeições de cada categoria. Não tem tamanho fixo.",
   },
   {
-    title: "Escolha o tamanho",
-    text: "7, 14 ou 21 refeições. Conte quais categorias combinam mais com você.",
+    title: "Envie pelo WhatsApp",
+    text: "A mensagem vai pronta com o seu kit. Conte o que gosta e o que prefere evitar.",
   },
   {
     title: "Combine os detalhes",
@@ -233,9 +234,10 @@ export const vanda = {
 export const feijoada = {
   maxGuests: 200,
   intro:
-    "Feijoada para o seu evento, feita e servida no próprio local. A panela chega, o fogo acende e a mesa se forma ali, perto de quem você convidou.",
+    "Feijoada para a sua festa ou para o evento da sua empresa, feita e servida no próprio local. A panela chega, o fogo acende e a mesa se forma ali, perto de quem você convidou.",
   facts: [
     { label: "Onde", value: "Preparada e servida no local do evento" },
+    { label: "Para quem", value: "Festas particulares e eventos de empresas" },
     { label: "Quantos", value: "Até 200 convidados" },
     { label: "Região", value: "Campinas, São Paulo e interior do estado" },
   ],

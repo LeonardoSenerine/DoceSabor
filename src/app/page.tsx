@@ -7,7 +7,7 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { Marmitas } from "@/components/sections/Marmitas";
-import { Services } from "@/components/sections/Services";
+import { Sumario } from "@/components/sections/Sumario";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Vanda } from "@/components/sections/Vanda";
 import { businessJsonLd } from "@/lib/structured-data";
@@ -28,7 +28,7 @@ export default function Home() {
       <Header />
       <main id="conteudo">
         <Hero />
-        <Services />
+        <Sumario />
         <Manifesto />
         <Marmitas />
         <Vanda />

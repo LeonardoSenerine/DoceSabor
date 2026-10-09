@@ -21,11 +21,11 @@ const EASE_OUT = "expo.out";
  * prefers-reduced-motion: no-preference e limpo pelo useGSAP/matchMedia):
  *
  * - Rolagem suave (Lenis) sincronizada ao ScrollTrigger.
- * - Títulos de seção sobem linha a linha por trás de uma máscara.
- * - Fotos abrem como cortina, com o zoom assentando.
- * - Parallax leve em camadas (fotos grandes, campos de cor, prato do hero).
+ * - Os títulos das três frentes sobem linha a linha por trás de uma máscara.
+ * - A fita crepe "cola" ao entrar na tela; o traço de caneta se desenha.
+ * - As fotos da mesa de feijoada abrem como cortina.
+ * - Parallax leve só no hero e na foto em sangria da feijoada.
  * - O manifesto "acende" frase a frase conforme a leitura.
- * - Números e traços à mão se desenham ao entrar na tela.
  *
  * A entrada do hero é feita em CSS (globals.css) para não depender da
  * hidratação; o estado estático é sempre a composição completa.
@@ -100,6 +100,19 @@ export function Motion() {
         });
       });
 
+      /* Fita crepe sendo colada (fora do hero, que anima em CSS) ------- */
+      gsap.utils
+        .toArray<HTMLElement>("[data-tape]")
+        .filter((tape) => !tape.closest("[data-hero-print]") && !tape.closest('[role="tabpanel"]'))
+        .forEach((tape) => {
+          gsap.from(tape, {
+            scaleX: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: { trigger: tape, start: "top 90%", once: true },
+          });
+        });
+
       /* Traços à mão ao entrar na tela -------------------------------- */
       gsap.utils.toArray<SVGSVGElement>('[data-draw="scroll"]').forEach((svg) => {
         const trigger = { trigger: svg, start: "top 85%", once: true };
@@ -156,8 +169,8 @@ export function Motion() {
       const hero = document.getElementById("inicio");
       if (hero) {
         const scroll = { trigger: hero, start: "top top", end: "bottom top", scrub: true };
-        gsap.to("[data-hero-depth='plate']", { yPercent: 14, ease: "none", scrollTrigger: scroll });
-        gsap.to("[data-hero-depth='title']", { yPercent: -18, ease: "none", scrollTrigger: scroll });
+        gsap.to("[data-hero-depth='photo']", { yPercent: 12, ease: "none", scrollTrigger: scroll });
+        gsap.to("[data-hero-depth='title']", { yPercent: -10, ease: "none", scrollTrigger: scroll });
       }
     });
   });
