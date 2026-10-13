@@ -34,11 +34,13 @@ export function Header() {
       className={`fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow,translate] duration-500 ease-(--ease-cozinha) ${
         tucked ? "-translate-y-full" : "translate-y-0"
       } ${
-        scrolled ? "bg-creme/95 shadow-[0_1px_0_var(--color-linha)] backdrop-blur-[2px]" : "bg-transparent"
+        scrolled
+          ? "bg-creme/95 text-cafe shadow-[0_1px_0_var(--color-linha)] backdrop-blur-[2px]"
+          : "bg-transparent text-creme lg:text-cafe" /* sobre a foto do hero, fora do computador */
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-6 px-4 sm:px-8 lg:h-20 lg:px-12">
-        <a href="#inicio" className="py-2.5 text-[0.95rem] text-cafe lg:text-base" aria-label="Doce e Sabor, voltar ao início">
+        <a href="#inicio" className="py-2.5 text-[0.95rem] lg:text-base" aria-label="Doce e Sabor, voltar ao início">
           <Wordmark />
         </a>
 

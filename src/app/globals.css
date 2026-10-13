@@ -137,24 +137,42 @@
  * final: a composição estática é a composição de verdade.
  */
 
-.motion-ok [data-reveal-line] > span {
+/* Assinatura do hero: as palavras pequenas sobem inteiras; as grandes,
+   letra por letra, com uma leve inclinação que se endireita. */
+[data-letters] > span {
   display: inline-block;
-  transform: translateY(108%);
-  animation: rise 1s var(--ease-cozinha) forwards;
-  animation-delay: calc(var(--i, 0) * 90ms + 100ms);
 }
 
-/* A foto do hero assenta: entra de leve, sem zoom dramático. */
+.motion-ok [data-hero-word] {
+  transform: translateY(110%);
+  animation: rise 0.9s var(--ease-cozinha) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+.motion-ok [data-letters] > span {
+  opacity: 0;
+  transform: translateY(100%) rotate(7deg);
+  transform-origin: 0 100%;
+  animation: letter-in 1.05s var(--ease-cozinha) forwards;
+  animation-delay: calc(var(--d, 0ms) + var(--c, 0) * 55ms);
+}
+
+/* A foto do hero assenta: entra de leve e o zoom se acomoda devagar. */
 .motion-ok [data-hero-photo] {
   opacity: 0;
-  clip-path: inset(6% 0 0 0);
-  animation: settle 1.3s var(--ease-cozinha) 0.15s forwards;
+  animation: fade 1.2s ease 0.05s forwards;
+}
+
+.motion-ok [data-hero-photo] img {
+  scale: 1.08;
+  animation: settle-zoom 2.6s var(--ease-cozinha) forwards;
 }
 
 .motion-ok [data-hero-fade] {
   opacity: 0;
-  animation: fade 0.8s ease forwards;
-  animation-delay: 0.65s;
+  transform: translateY(14px);
+  animation: fade-up 0.9s var(--ease-cozinha) forwards;
+  animation-delay: 1.15s;
 }
 
 @keyframes rise {
@@ -163,10 +181,23 @@
   }
 }
 
-@keyframes settle {
+@keyframes letter-in {
   to {
     opacity: 1;
-    clip-path: inset(0 0 0 0);
+    transform: none;
+  }
+}
+
+@keyframes settle-zoom {
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 

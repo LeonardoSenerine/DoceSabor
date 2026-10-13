@@ -27,12 +27,12 @@ const pexels = (id: number) => `https://images.pexels.com/photos/${id}/pexels-ph
 
 export const photos = {
   hero: {
-    src: unsplash("photo-1709114107937-6dec855d9ab5"),
-    alt: "Mesa servida com carne seca desfiada, cuscuz e mandioca cozida, vista de perto",
-    width: 3375,
-    height: 6000,
+    src: unsplash("photo-1577308856961-8e9ec50d0c67"),
+    alt: "Mesa farta de banquete, com travessas de assados, batatas, legumes e saladas",
+    width: 6000,
+    height: 4000,
     provisional: true,
-    focus: "50% 22%",
+    focus: "50% 50%",
   },
   marmitas: {
     src: unsplash("photo-1666819691666-4be36926335e"),
