@@ -138,7 +138,7 @@ export const photos = {
     provisional: true,
     focus: "50% 55%",
   },
-  /* Carrossel da feijoada: feijoadas e eventos */
+  /* Fundo da feijoada: feijoadas e cozinheiros */
   feijoadaMesaCima: {
     src: pexels(34195321),
     alt: "Feijoada vista de cima, com arroz, couve, farofa, laranja e pimenta",
@@ -160,30 +160,37 @@ export const photos = {
     height: 4000,
     provisional: true,
   },
-  eventoServindo: {
-    src: pexels(20488720),
-    alt: "Mãos servindo pratos numa mesa posta para muitas pessoas",
+  cozinheiroMassa: {
+    src: pexels(7447293),
+    alt: "Cozinheiro de avental abrindo massa na bancada",
     width: 4000,
     height: 6000,
     provisional: true,
   },
-  eventoQuintal: {
-    src: pexels(8841611),
-    alt: "Pessoas almoçando juntas numa mesa farta ao ar livre",
+  cozinheiraEmpratando: {
+    src: pexels(36505864),
+    alt: "Cozinheira de dólmã empratando com cuidado",
+    width: 4000,
+    height: 5000,
+    provisional: true,
+  },
+  cozinheiraBancada: {
+    src: pexels(3960597),
+    alt: "Cozinheira sorrindo enquanto prepara ingredientes na bancada de casa",
+    width: 6000,
+    height: 4070,
+    provisional: true,
+  },
+  cozinheiroFogao: {
+    src: pexels(5779821),
+    alt: "Cozinheiro de dólmã preto trabalhando no fogão de uma cozinha profissional",
     width: 6000,
     height: 4000,
     provisional: true,
   },
-  eventoGramado: {
-    src: pexels(8841223),
-    alt: "Família reunida em volta da mesa posta no gramado",
-    width: 6000,
-    height: 4000,
-    provisional: true,
-  },
-  eventoMesa: {
-    src: pexels(3758012),
-    alt: "Amigos em volta de uma mesa cheia de pratos e travessas",
+  cozinheiraLegumes: {
+    src: pexels(8357266),
+    alt: "Cozinheira de avental cortando legumes na cozinha",
     width: 6000,
     height: 4000,
     provisional: true,
