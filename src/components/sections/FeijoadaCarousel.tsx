@@ -1,37 +1,58 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Photo } from "@/components/ui/Photo";
 import type { PhotoKey } from "@/content/images";
 
-/** Feijoadas e cozinheiros, alternados. O formato segue a orientação da foto. */
-const slides: { name: PhotoKey; frame: string }[] = [
-  { name: "feijoadaMesaCima", frame: "aspect-[3/2]" },
-  { name: "cozinheiroMassa", frame: "aspect-[2/3]" },
-  { name: "feijoadaCompleta", frame: "aspect-[2/3]" },
-  { name: "cozinheiraBancada", frame: "aspect-[3/2]" },
-  { name: "feijao", frame: "aspect-[3/2]" },
-  { name: "cozinheiraEmpratando", frame: "aspect-[4/5]" },
-  { name: "feijoadaLinguica", frame: "aspect-[2/3]" },
-  { name: "cozinheiroFogao", frame: "aspect-[3/2]" },
-  { name: "feijoadaPanelinha", frame: "aspect-[9/16]" },
-  { name: "cozinheiraLegumes", frame: "aspect-[3/2]" },
+/** Feijoadas e cozinheiros, alternados. */
+const slides: PhotoKey[] = [
+  "feijoadaMesaCima",
+  "cozinheiroMassa",
+  "feijoadaCompleta",
+  "cozinheiraBancada",
+  "feijao",
+  "cozinheiraEmpratando",
+  "feijoadaLinguica",
+  "cozinheiroFogao",
 ];
 
+/** Tempo de cada foto na tela, em milissegundos. */
+const INTERVAL = 5000;
+
 /**
- * Fundo em movimento da seção da feijoada: feijoadas e cozinheiros passando
- * devagar, cobertos pela terracota da seção. É textura, não conteúdo: fica
- * escondido de leitores de tela e parado com movimento reduzido.
+ * Fundo da área da capacidade: as fotos trocam no mesmo lugar, uma surgindo
+ * enquanto a outra some, sob a terracota da seção. É textura, não conteúdo:
+ * fica escondido de leitores de tela. Com movimento reduzido, mostra só a
+ * primeira foto, parada. Também pausa quando a aba não está visível.
  */
 export function FeijoadaCarousel() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setActive((current) => (current + 1) % slides.length);
+    }, INTERVAL);
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
-    <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
-      <ul className="flex h-full w-max motion-safe:animate-[marquee_220s_linear_infinite]">
-        {[...slides, ...slides].map((slide, index) => (
-          <li key={index} className="h-full shrink-0 pr-2">
-            <Photo name={slide.name} tag="none" sizes="40vw" className={`h-full ${slide.frame}`} />
-          </li>
-        ))}
-      </ul>
-      {/* A terracota por cima: as fotos aparecem só como uma lembrança */}
-      <div className="absolute inset-0 bg-barro/[0.88]" />
+    <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-brasa">
+      {slides.map((name, index) => {
+        const on = index === active;
+        return (
+          <div
+            key={name}
+            className={`absolute inset-0 transition-[opacity,scale] ease-(--ease-cozinha) motion-reduce:transition-none ${
+              on ? "scale-100 opacity-100 duration-[1600ms,6500ms]" : "scale-[1.06] opacity-0 duration-[1600ms,0ms] delay-[0ms,1600ms]"
+            }`}
+          >
+            <Photo name={name} tag="none" sizes="100vw" className="size-full" />
+          </div>
+        );
+      })}
+      {/* A terracota por cima, mais densa à esquerda, onde fica o texto */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(169_50_27/0.92),rgb(169_50_27/0.78))]" />
     </div>
   );
 }

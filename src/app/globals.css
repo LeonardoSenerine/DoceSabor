@@ -248,10 +248,3 @@
     transform: translateY(18px);
   }
 }
-
-/* Carrossel da feijoada: a faixa (duplicada) anda até a metade e recomeça. */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
