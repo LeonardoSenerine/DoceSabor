@@ -13,10 +13,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    // Fotos provisórias (Unsplash). Ao trocar pelas fotos reais em /public,
-    // este padrão pode ser removido.
+    // Fotos provisórias (Unsplash e Pexels). Ao trocar pelas fotos reais em
+    // /public, estes padrões podem ser removidos.
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com", pathname: "/photo-*" },
+      { protocol: "https", hostname: "images.pexels.com", pathname: "/photos/**" },
     ],
   },
 };

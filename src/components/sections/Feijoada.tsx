@@ -58,7 +58,7 @@ export function Feijoada() {
 
           <div className="mt-16 grid grid-cols-5 gap-4">
             <Figure
-              name="mesaReunida"
+              name="feijoadaCompleta"
               sizes="(min-width: 1024px) 26vw, 60vw"
               frame="aspect-[4/5]"
               className="col-span-3"

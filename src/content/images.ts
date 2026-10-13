@@ -1,7 +1,8 @@
 /**
  * Fotografia do site.
  *
- * Todas as imagens abaixo são PROVISÓRIAS (banco de imagens Unsplash) e
+ * Todas as imagens abaixo são PROVISÓRIAS (bancos de imagens Unsplash e
+ * Pexels) e
  * aparecem com a marcação "Foto ilustrativa". Nenhuma delas mostra a Vanda,
  * a cozinha ou os pratos reais da Doce e Sabor.
  *
@@ -22,14 +23,16 @@ export type Photo = {
 const unsplash = (id: string) =>
   `https://images.unsplash.com/${id}?fm=jpg&q=80&w=1800&fit=max`;
 
+const pexels = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1800`;
+
 export const photos = {
   hero: {
-    src: unsplash("photo-1762631383556-7fa1365898b7"),
-    alt: "Prato visto de cima com arroz, feijão, frango grelhado fatiado e salada",
-    width: 5333,
-    height: 4000,
+    src: unsplash("photo-1709114107937-6dec855d9ab5"),
+    alt: "Mesa servida com carne seca desfiada, cuscuz e mandioca cozida, vista de perto",
+    width: 3375,
+    height: 6000,
     provisional: true,
-    focus: "50% 50%",
+    focus: "50% 22%",
   },
   marmitas: {
     src: unsplash("photo-1666819691666-4be36926335e"),
@@ -88,43 +91,44 @@ export const photos = {
     focus: "50% 50%",
   },
   maosNaTabua: {
-    src: unsplash("photo-1717465962260-d6d2fa73db5f"),
-    alt: "Mãos cortando limão sobre uma tábua de madeira, com alho e tomates ao lado",
-    width: 7952,
-    height: 5304,
+    src: unsplash("photo-1652283318977-bc722abd88ca"),
+    alt: "Mãos sovando massa sobre a bancada enfarinhada",
+    width: 5216,
+    height: 7824,
     provisional: true,
-    focus: "55% 50%",
+    focus: "50% 45%",
   },
   panelaNoFogao: {
-    src: unsplash("photo-1715828202780-915fd3571413"),
-    alt: "Mão mexendo uma panela no fogão de uma cozinha de casa",
-    width: 6000,
-    height: 4000,
+    src: unsplash("photo-1706685835600-fa406f365c2b"),
+    alt: "Panela no fogão de uma cozinha de casa, com o vapor subindo",
+    width: 5982,
+    height: 3992,
     provisional: true,
-    focus: "60% 50%",
+    focus: "50% 55%",
   },
   feijoadaPanela: {
-    src: unsplash("photo-1790008882149-a136e05daae1"),
-    alt: "Caldeirão fumegante sendo mexido ao ar livre",
+    src: pexels(34195320),
+    alt: "Feijoada servida na panela de barro com concha, ao lado de couve, laranja e arroz, sobre a mesa de madeira",
     width: 6000,
     height: 4000,
     provisional: true,
-    focus: "55% 45%",
+    focus: "60% 55%",
   },
   feijao: {
-    src: unsplash("photo-1647545401750-6dd5539879ac"),
-    alt: "Tigela de feijão preto ao lado de limões",
-    width: 5184,
-    height: 3456,
+    src: pexels(34195319),
+    alt: "Panela de barro com feijoada e linguiça, laranja fatiada e couve ao fundo",
+    width: 6000,
+    height: 4000,
     provisional: true,
-    focus: "40% 50%",
+    focus: "40% 60%",
   },
-  mesaReunida: {
-    src: unsplash("photo-1530062845289-9109b2c9c868"),
-    alt: "Pessoas reunidas ao redor de uma mesa ao ar livre, servindo-se",
-    width: 4096,
-    height: 2726,
+  feijoadaCompleta: {
+    src: pexels(9494742),
+    alt: "Prato de feijoada completa com arroz, couve, farofa, laranja, torresmo e linguiça",
+    width: 4000,
+    height: 6000,
     provisional: true,
+    focus: "50% 55%",
   },
 } satisfies Record<string, Photo>;
 

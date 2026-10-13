@@ -106,7 +106,7 @@ export const services: Record<ServiceId, Service> = {
       "Buffet de feijoada preparado e servido no local do evento, para festas particulares e empresas, com até 200 convidados.",
     cta: "Solicite um orçamento",
     message: messages.feijoada,
-    photo: "mesaReunida",
+    photo: "feijoadaCompleta",
   },
 };
 
