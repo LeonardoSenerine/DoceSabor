@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { Tape } from "@/components/brand/kitchen";
 import { Footer } from "@/components/layout/Footer";
 import { brand, contact, messages, privacyUpdatedAt } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -20,8 +19,8 @@ export const metadata: Metadata = {
  */
 function Item({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="border-t border-cafe/15 py-10 lg:grid lg:grid-cols-12 lg:gap-12">
-      <h2 className="font-serif text-[1.6rem] leading-tight font-medium lg:col-span-4">{title}</h2>
+    <section className="border-t border-linha py-10 lg:grid lg:grid-cols-12 lg:gap-12">
+      <h2 className="font-serif text-[1.6rem] leading-tight text-cafe lg:col-span-4">{title}</h2>
       <div className="mt-4 max-w-[40rem] space-y-4 text-pretty text-cafe-suave lg:col-span-8 lg:mt-0 [&_strong]:font-semibold [&_strong]:text-cafe">
         {children}
       </div>
@@ -46,10 +45,8 @@ export default function PrivacidadePage() {
           </header>
 
           <div className="py-16 lg:py-24">
-            <div>
-              <Tape tilt={-2}>atualizada em {privacyUpdatedAt}</Tape>
-            </div>
-            <h1 className="display-voice mt-8 max-w-[52rem] text-[clamp(3rem,8vw,7rem)] font-semibold">
+            <p className="text-cafe-suave">Atualizada em {privacyUpdatedAt}</p>
+            <h1 className="display mt-6 max-w-[52rem] text-[clamp(3rem,8vw,7rem)] text-cafe">
               Privacidade e cookies.
             </h1>
             <p className="mt-8 max-w-[38rem] text-[1.15rem] text-pretty text-cafe-suave">
@@ -87,9 +84,9 @@ export default function PrivacidadePage() {
 
             <Item title="O que você digita no site">
               <p>
-                O <strong>“Monte o seu kit”</strong> e a <strong>ficha de orçamento da feijoada</strong> não enviam nada
-                para o site. Nome, e-mail, endereço do evento, quantidades e observações ficam só no seu navegador até
-                você tocar em enviar.
+                A <strong>ficha de orçamento da feijoada</strong> não envia nada para o site. Nome, empresa, e-mail,
+                endereço, data, número de convidados e observações ficam só no seu navegador até você tocar em
+                “Solicite um orçamento”.
               </p>
               <p>
                 Nesse momento o site abre o WhatsApp com a mensagem pronta, e é você quem decide se envia. Nada fica

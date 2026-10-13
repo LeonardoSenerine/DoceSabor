@@ -1,58 +1,58 @@
-import { WhatsAppGlyph } from "@/components/ui/WhatsAppLink";
-import { contact, messages, services, type ServiceId } from "@/content/site";
+import { WhatsAppGlyph, WhatsAppLink } from "@/components/ui/WhatsAppLink";
+import { contact, messages, serviceOrder, services } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
-const choices: { id: ServiceId; label: string; dot: string }[] = [
-  { id: "marmitas", label: "Quero um kit de marmitas", dot: "bg-verde" },
-  { id: "vanda", label: "Quero a Vanda cozinhando em casa", dot: "bg-mostarda" },
-  { id: "feijoada", label: "Quero feijoada no meu evento", dot: "bg-terracota" },
-];
-
+/** Contato: cada intenção abre o WhatsApp com a mensagem do serviço certo. */
 export function FinalCta() {
   return (
     <section id="contato" aria-labelledby="contato-title" className="paper py-24 lg:py-36">
-      <div className="mx-auto grid max-w-[90rem] gap-14 px-4 sm:px-8 lg:grid-cols-12 lg:gap-12 lg:px-12">
-        <h2 id="contato-title" className="display-voice text-[clamp(4.5rem,13vw,12rem)] font-semibold lg:col-span-6">
-          <span data-reveal-scroll className="-my-[0.12em] block overflow-hidden py-[0.12em]">
-            <span className="block">Bateu</span>
-          </span>
-          <span data-reveal-scroll className="-my-[0.12em] block overflow-hidden py-[0.12em] pl-[8%]">
-            <span className="block">a fome?</span>
-          </span>
-        </h2>
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
+        <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
+          <h2 id="contato-title" className="display text-[clamp(4rem,11vw,10.5rem)] text-cafe lg:col-span-6">
+            Bateu
+            <br />
+            <span className="pl-[10%]">a fome?</span>
+          </h2>
 
-        <div className="lg:col-span-5 lg:col-start-8 lg:self-end">
-          <p className="max-w-[28rem] text-[1.15rem] text-pretty text-cafe-suave">
-            Escolha por onde começar. A conversa abre no WhatsApp com a mensagem pronta, é só enviar.
-          </p>
-          <ul className="mt-8 border-t border-cafe/20">
-            {choices.map((choice) => (
-              <li key={choice.id} className="border-b border-cafe/20">
-                <a
-                  href={whatsappUrl(services[choice.id].message)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex min-h-16 items-center gap-4 py-4 transition-[padding] duration-300 ease-(--ease-cozinha) hover:pl-2"
-                >
-                  <span aria-hidden="true" className={`size-3 shrink-0 rounded-full ${choice.dot}`} />
-                  <span className="flex-1 font-serif text-[clamp(1.3rem,2.2vw,1.65rem)] leading-tight">{choice.label}</span>
-                  <WhatsAppGlyph className="size-6 shrink-0 text-cafe-suave transition-colors group-hover:text-cafe" />
-                  <span className="sr-only"> (abre o WhatsApp)</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-cafe-suave">
-            Ou só diga oi:{" "}
-            <a
-              href={whatsappUrl(messages.geral)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-cafe underline underline-offset-4"
-            >
-              {contact.whatsappDisplay}
-            </a>
-          </p>
+          <div className="lg:col-span-5 lg:col-start-8 lg:self-end">
+            <p className="max-w-[28rem] text-[1.1rem] text-pretty text-cafe-suave">
+              Escolha por onde começar. A conversa abre no WhatsApp com a mensagem pronta, é só enviar.
+            </p>
+            <ul className="mt-8 border-t border-linha">
+              {serviceOrder.map((id) => (
+                <li key={id} className="border-b border-linha">
+                  <a
+                    href={whatsappUrl(services[id].message)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group grid min-h-16 grid-cols-[1fr_auto] items-center gap-3 py-4"
+                  >
+                    <span>
+                      <span className="block font-serif text-[clamp(1.25rem,2vw,1.55rem)] leading-tight transition-colors group-hover:text-terracota">
+                        {services[id].cta}
+                      </span>
+                      <span className="text-[0.9rem] text-cafe-suave">{services[id].kind}</span>
+                    </span>
+                    <WhatsAppGlyph className="size-6 text-cafe-suave transition-[color,translate] duration-300 group-hover:-translate-y-0.5 group-hover:text-cafe" />
+                    <span className="sr-only"> (abre o WhatsApp)</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+              <WhatsAppLink message={messages.geral} className="bg-cafe text-creme hover:bg-verde">
+                Fale com a Vanda
+              </WhatsAppLink>
+              <a
+                href={contact.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="min-h-11 py-2 font-medium underline decoration-1 underline-offset-[6px] hover:decoration-2"
+              >
+                Instagram {contact.instagramHandle}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

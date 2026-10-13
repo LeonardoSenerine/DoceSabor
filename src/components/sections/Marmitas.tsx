@@ -1,89 +1,70 @@
 import { Wordmark } from "@/components/brand/Wordmark";
-import { Ficha } from "@/components/brand/kitchen";
 import { Frost, Leaf, Steam } from "@/components/brand/marks";
-import { kitBuilder, mealCategories, mealMenuNote, mealOrderSteps, mealStorage, services } from "@/content/site";
-import { KitBuilder } from "./KitBuilder";
+import { WhatsAppLink } from "@/components/ui/WhatsAppLink";
+import { mealCategories, mealMenuNote, mealOrderNote, mealStorage, services } from "@/content/site";
+import { CategoryAccordion } from "./CategoryAccordion";
 
 /**
- * Marmitas: a frente mais estruturada. Grade precisa, potes lado a lado,
- * etiquetas de fita crepe e fichas de pedido e conservação.
+ * Marmitas congeladas: uma apresentação, não um cardápio. As categorias
+ * abrem em sanfona, cada uma com a sua foto; o pedido acontece na conversa.
  */
 export function Marmitas() {
   const service = services.marmitas;
 
   return (
-    <section id={service.anchor} aria-labelledby="marmitas-title">
-      <div className="bg-verde py-24 text-creme lg:py-36">
-        <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
-          <header className="grid gap-8 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <Wordmark line={service.line} ruleClassName="bg-verde-folha" className="text-[1.05rem] text-creme" />
-              <h2
-                id="marmitas-title"
-                data-split
-                className="mt-10 font-serif text-[clamp(2.75rem,7vw,6.25rem)] leading-[0.95] font-medium tracking-[-0.03em] text-balance"
-              >
-                {service.title}
-              </h2>
-            </div>
-            <div className="max-w-[28rem] self-end lg:col-span-4 lg:col-start-9">
-              <p className="text-[1.1rem] text-pretty text-creme/80">
-                Refeições preparadas e vendidas em kits, para você abrir o freezer e encontrar comida de verdade nos
-                dias em que não dá para cozinhar.
-              </p>
-              <p className="mt-6 border-l-2 border-verde-folha pl-4 font-serif text-[1.3rem] leading-snug text-pretty text-creme">
-                {mealMenuNote}
-              </p>
-            </div>
-          </header>
-
-          <div className="mt-20 border-t border-creme/20 pt-12 lg:mt-28 lg:pt-16">
-            <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-              <h3 className="font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.02] font-medium tracking-[-0.02em]">
-                {kitBuilder.title}
-              </h3>
-              <p className="max-w-[30rem] text-pretty text-creme/80">{kitBuilder.intro}</p>
-            </div>
-            <KitBuilder categories={mealCategories} />
+    <section id={service.anchor} aria-labelledby="marmitas-title" className="paper py-24 lg:py-32">
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
+        <header className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-7">
+            <Wordmark line={service.line} ruleClassName="bg-verde-medio" className="text-[1.05rem] text-verde" />
+            <h2 id="marmitas-title" className="display mt-10 text-[clamp(3rem,7vw,6.75rem)] text-verde">
+              Sabor de casa, do seu jeito.
+            </h2>
           </div>
-        </div>
-      </div>
+          <div className="max-w-[28rem] self-end lg:col-span-4 lg:col-start-9">
+            <p className="text-[1.1rem] leading-relaxed text-pretty text-cafe-suave">{service.summary}</p>
+            <p className="mt-6 border-l-2 border-verde-folha pl-4 font-serif text-[1.25rem] leading-snug text-pretty text-verde">
+              {mealMenuNote}
+            </p>
+          </div>
+        </header>
 
-      <div className="bg-verde-claro py-24 text-verde lg:py-32">
-        <div className="mx-auto grid max-w-[90rem] gap-12 px-4 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:px-12">
-          <Ficha kind="ficha de pedido" title="Como pedir" rule="bg-verde" className="lg:col-span-6">
-            <ol>
-              {mealOrderSteps.map((step, index) => (
-                <li key={step.title} data-margin={`${index + 1}.`}>
-                  <strong className="font-semibold">{step.title}.</strong> {step.text}
+        <div className="mt-16 lg:mt-20">
+          <CategoryAccordion categories={mealCategories} />
+        </div>
+
+        <div className="mt-20 grid gap-16 border-t border-linha pt-14 lg:mt-24 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-6">
+            <p className="font-serif text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.1] text-balance text-verde">
+              Conte o que você gosta e o que prefere evitar.
+            </p>
+            <p className="mt-5 max-w-[30rem] text-pretty text-cafe-suave">{mealOrderNote}</p>
+            <WhatsAppLink message={service.message} className="mt-8 bg-verde text-creme hover:bg-cafe">
+              {service.cta}
+            </WhatsAppLink>
+          </div>
+
+          <div className="lg:col-span-5 lg:col-start-8">
+            <h3 className="font-serif text-[1.5rem] leading-tight">Como guardar</h3>
+            <ul className="mt-5 border-t border-linha">
+              {[
+                { icon: Frost, title: mealStorage.frozen.title, text: mealStorage.frozen.lines.join(" ") },
+                { icon: Leaf, title: mealStorage.salads.title, text: mealStorage.salads.lines.join(" ") },
+                {
+                  icon: Steam,
+                  title: "Na hora de aquecer",
+                  text: mealStorage.heating ? mealStorage.heating.join(" ") : mealStorage.heatingFallback,
+                },
+              ].map(({ icon: Icon, title, text }) => (
+                <li key={title} className="grid grid-cols-[2rem_1fr] gap-3 border-b border-linha py-5">
+                  <Icon className="mt-1 size-5 text-verde-medio" />
+                  <p>
+                    <span className="font-semibold">{title}.</span> <span className="text-cafe-suave">{text}</span>
+                  </p>
                 </li>
               ))}
-            </ol>
-          </Ficha>
-
-          <Ficha kind="ficha de conservação" title="Como guardar" rule="bg-verde" className="lg:col-span-6 lg:mt-20">
-            <ul>
-              <li className="flex gap-3">
-                <Frost className="mt-[0.6rem] size-4 shrink-0 text-verde-medio" />
-                <span>
-                  <strong className="font-semibold">{mealStorage.frozen.title}.</strong> {mealStorage.frozen.lines.join(" ")}
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <Leaf className="mt-[0.6rem] size-4 shrink-0 text-verde-medio" />
-                <span>
-                  <strong className="font-semibold">{mealStorage.salads.title}.</strong> {mealStorage.salads.lines.join(" ")}
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <Steam className="mt-[0.6rem] size-4 shrink-0 text-verde-medio" />
-                <span>
-                  <strong className="font-semibold">Na hora de aquecer.</strong>{" "}
-                  {mealStorage.heating ? mealStorage.heating.join(" ") : mealStorage.heatingFallback}
-                </span>
-              </li>
             </ul>
-          </Ficha>
+          </div>
         </div>
       </div>
     </section>

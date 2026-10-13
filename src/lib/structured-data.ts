@@ -15,7 +15,7 @@ export function businessJsonLd() {
   ];
 
   const serviceDescriptions: Record<string, string> = {
-    marmitas: "Refeições congeladas em kits montados sob medida: fit, low-carb, vegetarianas, variadas, sopas e saladas frescas, com cardápio que muda sempre.",
+    marmitas: "Refeições congeladas: fit, low-carb, vegetarianas, variadas, sopas e saladas frescas, com cardápio que muda sempre.",
     vanda: "Cozinheira particular que prepara as refeições na residência do cliente.",
     feijoada: `Buffet de feijoada preparado e servido no local do evento, para até ${feijoada.maxGuests} convidados.`,
   };

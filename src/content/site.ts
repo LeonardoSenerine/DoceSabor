@@ -12,7 +12,7 @@ export const brand = {
   owner: "Vanda Camargo",
   signature: "Feita com cuidado. Servida com afeto.",
   description:
-    "Marmitas congeladas, cozinheira particular e buffet de feijoada em Campinas, São Paulo e interior. A cozinha da Vanda Camargo para a rotina, para a sua casa e para as suas festas.",
+    "Marmitas congeladas, cozinheira particular e buffet de feijoada em Campinas, São Paulo e interior. A cozinha de Vanda Camargo, da refeição que facilita a semana à mesa que reúne quem você ama.",
 } as const;
 
 export const contact = {
@@ -34,10 +34,19 @@ export const privacyUpdatedAt = "9 de outubro de 2026";
 
 /** Mensagens pré-preenchidas, uma por caminho de contato. */
 export const messages = {
-  geral: "Olá! Vim pelo site da Doce e Sabor e gostaria de mais informações.",
-  marmitas: "Olá! Gostaria de conhecer os kits de marmitas congeladas da Doce e Sabor.",
-  vanda: "Olá, Vanda! Gostaria de saber mais sobre o serviço de cozinheira particular.",
-  feijoada: "Olá! Gostaria de solicitar um orçamento para o serviço de Feijoada de Raiz para um evento.",
+  geral: "Olá, Vanda! Vim pelo site da Doce e Sabor e gostaria de mais informações.",
+  marmitas: "Olá! Vim pelo site e gostaria de consultar as opções de marmitas congeladas da Doce e Sabor.",
+  vanda: "Olá, Vanda! Gostaria de conversar sobre o atendimento como cozinheira particular.",
+  feijoada: "Olá! Gostaria de solicitar um orçamento do buffet de Feijoada de Raiz para um evento.",
+} as const;
+
+/** Abertura do site. */
+export const hero = {
+  title: ["Feita com", "cuidado."],
+  subtitle: ["Servida com", "afeto."],
+  text: "Marmitas congeladas, cozinheira particular e feijoada para eventos, pelas mãos de Vanda Camargo. Da refeição que facilita a sua semana à mesa que reúne quem você ama.",
+  cta: "Conheça a cozinha",
+  secondaryCta: "Fale com a Vanda",
 } as const;
 
 export type ServiceId = "marmitas" | "vanda" | "feijoada";
@@ -46,7 +55,7 @@ export type Service = {
   id: ServiceId;
   /** Âncora da seção na página. */
   anchor: string;
-  /** Nome da frente, usado na assinatura "Doce e Sabor — ...". */
+  /** Nome da frente, usado na assinatura da marca. */
   line: string;
   /** O que a frente é, em linguagem simples. */
   kind: string;
@@ -66,10 +75,10 @@ export const services: Record<ServiceId, Service> = {
     line: "Marmitas congeladas",
     kind: "Marmitas congeladas",
     navLabel: "Marmitas",
-    title: "Sua rotina, bem servida.",
+    title: "Sabor de casa, do seu jeito.",
     summary:
-      "Kits montados do seu jeito: fit, low-carb, vegetarianas, variadas, sopas e saladas frescas, com cardápio que muda sempre e se adapta ao que você deseja.",
-    cta: "Pedir meu kit",
+      "Refeições preparadas com cuidado para acompanhar a sua rotina, com variedade e aquele sabor que faz diferença no dia a dia.",
+    cta: "Consulte as opções",
     message: messages.marmitas,
     photo: "marmitas",
   },
@@ -78,11 +87,11 @@ export const services: Record<ServiceId, Service> = {
     anchor: "cozinheira-particular",
     line: "Vanda Camargo",
     kind: "Cozinheira particular",
-    navLabel: "Cozinheira em casa",
+    navLabel: "Cozinheira particular",
     title: "Uma cozinheira na sua casa.",
     summary:
       "A Vanda vai até a sua casa e prepara as refeições ali mesmo, na sua cozinha, do jeito que a ocasião pede.",
-    cta: "Falar com a Vanda",
+    cta: "Converse sobre o atendimento",
     message: messages.vanda,
     photo: "maosNaTabua",
   },
@@ -95,13 +104,25 @@ export const services: Record<ServiceId, Service> = {
     title: "Mesa farta. Gente reunida.",
     summary:
       "Buffet de feijoada preparado e servido no local do evento, para festas particulares e empresas, com até 200 convidados.",
-    cta: "Pedir orçamento",
+    cta: "Solicite um orçamento",
     message: messages.feijoada,
-    photo: "feijoadaMesa",
+    photo: "mesaReunida",
   },
 };
 
 export const serviceOrder: ServiceId[] = ["marmitas", "vanda", "feijoada"];
+
+/* ------------------------------------------------------------------ */
+/* A cozinha: quem cozinha                                             */
+/* ------------------------------------------------------------------ */
+
+export const kitchen = {
+  kicker: "Quem cozinha",
+  text: [
+    "Vanda Camargo é cozinheira profissional e a pessoa por trás da Doce e Sabor.",
+    "É dela o jeito de cozinhar que aparece em tudo o que a marca faz, das marmitas que vão para o freezer à feijoada servida no seu evento: comida de verdade, feita para estar à mesa.",
+  ],
+} as const;
 
 /* ------------------------------------------------------------------ */
 /* Marmitas congeladas                                                 */
@@ -119,16 +140,16 @@ export type MealCategory = {
 /** Confirmado pela marca: fit, low-carb e vegetarianas têm cardápio rotativo e sob medida. */
 const rotatingMenu = ["Cardápio que muda sempre", "Adaptado ao que você deseja"];
 
-/** Frase de destaque da seção de marmitas. */
+/** Destaque da seção de marmitas (confirmado pela marca). */
 export const mealMenuNote =
-  "O cardápio das marmitas fit, low-carb e vegetarianas muda sempre e se adapta ao que você deseja.";
+  "Nas vegetarianas, low-carb e fit, o cardápio muda sempre e se adapta ao que você deseja.";
 
 export const mealCategories: MealCategory[] = [
   {
-    id: "fit",
-    name: "Fit",
-    description: "Para quem quer manter o prato equilibrado mesmo na semana mais corrida.",
-    photo: "fit",
+    id: "vegetarianas",
+    name: "Vegetarianas",
+    description: "Refeições sem carne, com o mesmo cuidado de todas as outras.",
+    photo: "vegetariana",
     notes: rotatingMenu,
   },
   {
@@ -139,10 +160,10 @@ export const mealCategories: MealCategory[] = [
     notes: rotatingMenu,
   },
   {
-    id: "vegetarianas",
-    name: "Vegetarianas",
-    description: "Refeições sem carne, com o mesmo cuidado de todas as outras.",
-    photo: "vegetariana",
+    id: "fit",
+    name: "Fit",
+    description: "Para quem quer manter o prato equilibrado mesmo na semana mais corrida.",
+    photo: "fit",
     notes: rotatingMenu,
   },
   {
@@ -152,44 +173,22 @@ export const mealCategories: MealCategory[] = [
     photo: "variada",
   },
   {
-    id: "sopas",
-    name: "Sopas",
-    description: "Para os dias frios, as noites leves e as horas em que só uma sopa resolve.",
-    photo: "sopa",
-  },
-  {
     id: "saladas",
-    name: "Saladas frescas",
+    name: "Saladas",
     description: "As únicas que não vão ao freezer: frescas, com molho, direto para a geladeira.",
     photo: "salada",
     notes: ["Não são congeladas", "Acompanham molho", "Conservação de até 7 dias"],
   },
+  {
+    id: "caldos",
+    name: "Caldos",
+    description: "Para os dias frios, as noites leves e as horas em que só um caldo resolve.",
+    photo: "caldo",
+  },
 ];
 
-/** Kit sob medida: o cliente escolhe quantas refeições de cada categoria. */
-export const kitBuilder = {
-  title: "Monte o seu kit.",
-  intro: "Escolha quantas refeições quiser de cada categoria. Não existe tamanho fixo: o kit é do jeito que a sua semana pede.",
-  maxPerCategory: 30,
-  /** Preços: aguardando confirmação. Enquanto `null`, o site orienta a consultar pelo WhatsApp. */
-  priceNote: null as string | null,
-  priceFallback: "Valores combinados pelo WhatsApp, conforme o kit.",
-} as const;
-
-export const mealOrderSteps = [
-  {
-    title: "Monte o kit aqui",
-    text: "Escolha quantas refeições de cada categoria. Não tem tamanho fixo.",
-  },
-  {
-    title: "Envie pelo WhatsApp",
-    text: "A mensagem vai pronta com o seu kit. Conte o que gosta e o que prefere evitar.",
-  },
-  {
-    title: "Combine os detalhes",
-    text: "Valores, pagamento e a forma de receber são acertados direto na conversa.",
-  },
-] as const;
+/** Como o pedido é combinado: sem carrinho, tudo na conversa. */
+export const mealOrderNote = "Opções, valores, pagamento e a forma de receber são combinados direto na conversa.";
 
 export const mealStorage = {
   frozen: {
@@ -200,13 +199,13 @@ export const mealStorage = {
     title: "Saladas frescas",
     lines: ["Não congele. Guarde na geladeira.", "Consuma em até 7 dias."],
   },
-  /** Modo e tempo de aquecimento por tipo de refeição — aguardando confirmação. */
+  /** Modo e tempo de aquecimento por tipo de refeição: aguardando confirmação. */
   heating: null as string[] | null,
   heatingFallback: "Ficou com dúvida sobre como aquecer? Pergunte ao fazer o pedido.",
 } as const;
 
 /* ------------------------------------------------------------------ */
-/* Vanda Camargo — cozinheira particular                               */
+/* Vanda Camargo, cozinheira particular                                */
 /* ------------------------------------------------------------------ */
 
 export const vanda = {
@@ -250,7 +249,7 @@ export const feijoada = {
     { label: "Quantos", value: "Até 200 convidados" },
     { label: "Região", value: "Campinas, São Paulo e interior do estado" },
   ],
-  /** Itens incluídos no buffet (acompanhamentos, equipe, louça etc.) — aguardando confirmação. */
+  /** Itens incluídos no buffet (acompanhamentos, equipe, louça etc.): aguardando confirmação. */
   includes: [] as string[],
 } as const;
 
@@ -261,7 +260,7 @@ export const feijoada = {
 export type Testimonial = {
   quote: string;
   author: string;
-  /** Ex.: "Kit de 14 marmitas" ou "Feijoada, aniversário de 60 anos". */
+  /** Ex.: "Marmitas congeladas" ou "Feijoada, aniversário de 60 anos". */
   context?: string;
   service?: ServiceId;
 };
@@ -278,4 +277,5 @@ export const navigation = [
   { label: services.marmitas.navLabel, href: `#${services.marmitas.anchor}` },
   { label: services.vanda.navLabel, href: `#${services.vanda.anchor}` },
   { label: services.feijoada.navLabel, href: `#${services.feijoada.anchor}` },
+  { label: "Contato", href: "#contato" },
 ] as const;

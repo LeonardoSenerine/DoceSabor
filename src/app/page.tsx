@@ -2,14 +2,13 @@ import { Motion } from "@/components/motion/Motion";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { Cozinha } from "@/components/sections/Cozinha";
 import { Feijoada } from "@/components/sections/Feijoada";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
-import { Manifesto } from "@/components/sections/Manifesto";
 import { Marmitas } from "@/components/sections/Marmitas";
-import { Sumario } from "@/components/sections/Sumario";
+import { Particular } from "@/components/sections/Particular";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { Vanda } from "@/components/sections/Vanda";
 import { businessJsonLd } from "@/lib/structured-data";
 
 export default function Home() {
@@ -28,10 +27,9 @@ export default function Home() {
       <Header />
       <main id="conteudo">
         <Hero />
-        <Sumario />
-        <Manifesto />
+        <Cozinha />
         <Marmitas />
-        <Vanda />
+        <Particular />
         <Feijoada />
         <Testimonials />
         <FinalCta />

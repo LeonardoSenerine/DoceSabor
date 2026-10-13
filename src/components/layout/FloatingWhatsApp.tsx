@@ -7,14 +7,14 @@ import { whatsappUrl } from "@/lib/whatsapp";
 
 /**
  * Atalho persistente para o WhatsApp. Fica escondido onde a página já tem um
- * CTA principal (hero, montagem do kit, orçamento da feijoada, contato final),
+ * CTA principal (hero, orçamento da feijoada, contato final),
  * para não competir com ele nem cobrir botões.
  */
 export function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const targets = ["inicio", "monte-seu-kit", "orcamento-feijoada", "contato"]
+    const targets = ["inicio", "orcamento-feijoada", "contato"]
       .map((id) => document.getElementById(id))
       .concat(document.querySelector("footer"))
       .filter((el): el is HTMLElement => el !== null);
@@ -43,7 +43,7 @@ export function FloatingWhatsApp() {
       aria-label="Conversar no WhatsApp"
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
-      className={`fixed right-4 bottom-4 z-30 inline-flex size-14 items-center justify-center gap-2 rounded-full bg-cafe text-creme shadow-[0_6px_20px_-8px_rgb(59_31_14/0.6)] ring-1 ring-creme/25 transition-[opacity,transform,background-color] duration-300 ease-(--ease-cozinha) hover:bg-verde sm:right-6 sm:bottom-6 sm:w-auto sm:px-5 ${
+      className={`fixed right-4 bottom-4 z-30 inline-flex size-14 items-center justify-center gap-2 rounded-full bg-cafe text-creme shadow-[0_6px_20px_-10px_rgb(48_43_38/0.6)] ring-1 ring-creme/25 transition-[opacity,transform,background-color] duration-300 ease-(--ease-cozinha) hover:bg-verde sm:right-6 sm:bottom-6 sm:w-auto sm:px-5 ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
     >

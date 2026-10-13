@@ -1,75 +1,69 @@
 import type { CSSProperties } from "react";
-import { Stamp } from "@/components/brand/kitchen";
-import { PinnedPhoto } from "@/components/ui/PinnedPhoto";
+import { Photo } from "@/components/ui/Photo";
 import { WhatsAppLink } from "@/components/ui/WhatsAppLink";
-import { messages } from "@/content/site";
+import { hero, messages } from "@/content/site";
 
 const line = (i: number) => ({ "--i": i }) as CSSProperties;
 
 /**
- * Hero como página de caderno: a frase-assinatura é a estrutura da
- * composição, em duas vozes de escala. Sobre ela, uma foto impressa
- * presa com fita crepe e o selo de origem com a área de atendimento.
+ * Abertura: a fotografia ocupa a metade esquerda, sangrando até a borda;
+ * a direita é o slogan, em duas vozes, e o caminho para a cozinha.
  */
 export function Hero() {
   return (
-    <section id="inicio" aria-labelledby="hero-title" className="paper relative overflow-hidden">
-      <div className="relative mx-auto max-w-[90rem] px-4 pt-24 pb-16 sm:px-8 lg:min-h-[max(100svh,50rem)] lg:px-12 lg:pt-32 lg:pb-14">
-        <h1 id="hero-title" data-hero-depth="title" className="display-voice relative text-cafe">
-          <span data-reveal-line className="-my-[0.12em] block overflow-hidden py-[0.12em]">
-            <span style={line(0)} className="text-[clamp(1.6rem,3vw,2.9rem)] font-light tracking-[-0.015em]">
-              Feita com
-            </span>
-          </span>
-          <span data-reveal-line className="-my-[0.12em] block overflow-hidden py-[0.12em]">
-            <span style={line(1)} className="text-[clamp(4.3rem,13.5vw,13rem)] font-semibold">
-              cuidado.
-            </span>
-          </span>
-          <span data-reveal-line className="-my-[0.12em] mt-[0.3em] block overflow-hidden py-[0.12em] pl-[18%] lg:pl-[22%]">
-            <span style={line(2)} className="text-[clamp(1.6rem,3vw,2.9rem)] font-light tracking-[-0.015em]">
-              Servida com
-            </span>
-          </span>
-          <span data-reveal-line className="-my-[0.12em] block overflow-hidden py-[0.12em] pl-[18%] lg:pl-[22%]">
-            <span style={line(3)} className="text-[clamp(4.3rem,13.5vw,13rem)] font-semibold">
-              afeto.
-            </span>
-          </span>
-        </h1>
-
-        {/* Foto impressa e selo */}
-        <div
-          data-hero-depth="photo"
-          className="relative mt-8 ml-auto w-[60%] sm:mt-12 sm:w-[46%] lg:absolute lg:top-24 lg:right-[max(3rem,6vw)] lg:mt-0 lg:w-[min(31vw,30rem)]"
-        >
-          <PinnedPhoto
+    <section id="inicio" aria-labelledby="hero-title" className="paper relative flex flex-col overflow-hidden lg:block">
+      {/* A foto (no celular, vem depois do texto) */}
+      <div className="order-last lg:absolute lg:top-20 lg:bottom-12 lg:left-0 lg:w-[42vw]">
+        <div data-hero-photo className="relative h-full">
+          <Photo
             name="hero"
-            caption="prato do dia"
-            tilt={3}
             preload
-            sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 60vw"
-            dataAttrs={{ "data-hero-print": "" }}
-          />
-          <Stamp
-            text="a cozinha da Vanda, em Campinas, São Paulo e interior,"
-            label="Atendimento em Campinas, São Paulo e interior do estado"
-            className="absolute bottom-6 -left-[62%] w-[52%] -rotate-12 text-cafe sm:-left-[58%] sm:w-[44%] lg:-bottom-[9%] lg:-left-[24%] lg:w-[40%]"
+            tag="none"
+            sizes="(min-width: 1024px) 42vw, 100vw"
+            className="aspect-[5/4] lg:aspect-auto lg:h-full"
           />
         </div>
+      </div>
 
-        <div data-hero-fade className="mt-10 max-w-[31rem] sm:mt-14 lg:mt-12">
-          <p className="text-[1.08rem] leading-relaxed text-pretty text-cafe-suave lg:text-[1.15rem]">
-            A cozinha da Vanda Camargo em três formas: marmitas congeladas para a rotina, uma cozinheira particular
-            na sua casa e feijoada servida no seu evento.
-          </p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
-            <WhatsAppLink message={messages.geral} className="bg-cafe text-creme hover:bg-verde">
-              Pedir pelo WhatsApp
-            </WhatsAppLink>
-            <a href="#servicos" className="min-h-11 py-2 font-medium underline decoration-1 underline-offset-[6px] hover:decoration-2">
-              Ver os três serviços
-            </a>
+      {/* O texto */}
+      <div className="relative mx-auto flex w-full max-w-[90rem] flex-col px-4 pt-28 pb-16 sm:px-8 lg:grid lg:min-h-[max(100svh,46rem)] lg:grid-cols-12 lg:px-12 lg:pt-32 lg:pb-14">
+        <div className="flex flex-col lg:col-span-6 lg:col-start-7 lg:justify-between">
+          <h1 id="hero-title" className="text-cafe lg:mt-4">
+            {[
+              [hero.title[0], hero.title[1], ""],
+              [hero.subtitle[0], hero.subtitle[1], "pl-[14%]"],
+            ].map(([small, big, indent], pair) => (
+              <span key={big} className={`block ${indent} ${pair ? "mt-4 lg:mt-6" : ""}`}>
+                <span data-reveal-line className="-my-[0.1em] block overflow-hidden py-[0.1em]">
+                  <span style={line(pair * 2)} className="font-serif text-[clamp(1.5rem,2.5vw,2.5rem)] font-light tracking-[-0.01em]">
+                    {small}
+                  </span>
+                </span>
+                <span data-reveal-line className="-my-[0.1em] block overflow-hidden py-[0.1em]">
+                  <span style={line(pair * 2 + 1)} className="display text-[clamp(4.4rem,10vw,10.5rem)]">
+                    {big}
+                  </span>
+                </span>
+              </span>
+            ))}
+          </h1>
+
+          <div data-hero-fade className="mt-10 flex flex-col gap-7 lg:mt-0">
+            <p className="max-w-[26rem] text-[1.12rem] leading-relaxed text-pretty text-cafe-suave">{hero.text}</p>
+            <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+              <a
+                href="#a-cozinha"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-cafe px-6 py-3 font-medium text-creme transition-colors duration-300 hover:bg-verde active:translate-y-px"
+              >
+                {hero.cta}
+                <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 transition-transform duration-300 ease-(--ease-cozinha) group-hover:translate-y-0.5">
+                  <path d="M8 2v11M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+              <WhatsAppLink variant="text" message={messages.geral} className="text-cafe">
+                {hero.secondaryCta}
+              </WhatsAppLink>
+            </div>
           </div>
         </div>
       </div>

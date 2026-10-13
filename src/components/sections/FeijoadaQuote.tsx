@@ -8,7 +8,7 @@ import { whatsappUrl } from "@/lib/whatsapp";
 type Audience = "particular" | "empresa";
 
 const field =
-  "w-full border-0 border-b border-cafe/30 bg-transparent px-0 py-1.5 text-[1.02rem] text-cafe placeholder:text-cafe/40 focus:border-terracota focus:ring-0 focus:outline-none";
+  "w-full border-0 border-b border-cafe/30 bg-transparent px-0 py-1.5 text-[1.02rem] text-cafe placeholder:text-cafe/55 focus:border-barro focus:shadow-[0_1px_0_var(--color-barro)] focus:ring-0 focus:outline-none";
 const labelText = "note text-[1.05rem] text-cafe-suave";
 
 function formatDate(value: string) {
@@ -62,16 +62,15 @@ export function FeijoadaQuote() {
       noValidate
       onSubmit={onSubmit}
       aria-labelledby={`${id}-titulo`}
-      className="ficha bg-papel text-cafe"
+      className="bg-creme text-cafe"
     >
       {/* Sem JavaScript, só esta mensagem padrão é enviada. */}
       <input type="hidden" name="text" value={messages.feijoada} />
 
       <div className="flex items-baseline justify-between gap-4 px-5 pt-5 pb-3 sm:px-8">
         <h3 id={`${id}-titulo`} className="font-serif text-[1.75rem] leading-tight font-medium">
-          Pedir orçamento
+          Solicite um orçamento
         </h3>
-        <span className="note shrink-0 text-[1rem] text-cafe-suave">ficha de evento</span>
       </div>
       <div aria-hidden="true" className="h-[3px] bg-terracota" />
 
@@ -159,9 +158,9 @@ export function FeijoadaQuote() {
             className="group inline-flex min-h-12 shrink-0 items-center justify-center gap-2.5 rounded-full bg-barro px-6 py-3 font-medium whitespace-nowrap text-creme transition-colors duration-300 hover:bg-cafe active:translate-y-px"
           >
             <WhatsAppGlyph className="size-[1.15em] transition-transform duration-300 group-hover:-translate-y-0.5" />
-            Enviar pelo WhatsApp
+            Solicite um orçamento
           </button>
-          <p className="text-[0.85rem] text-cafe-suave">Os dados vão só na mensagem. Nada fica salvo no site.</p>
+          <p className="text-[0.85rem] text-cafe-suave">Abre o WhatsApp com os dados. Nada fica salvo no site.</p>
         </div>
       </div>
     </form>

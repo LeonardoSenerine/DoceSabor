@@ -3,13 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { WhatsAppLink } from "@/components/ui/WhatsAppLink";
-import { contact, messages, navigation, serviceOrder, services } from "@/content/site";
-
-const swatch = {
-  marmitas: "bg-verde-folha",
-  vanda: "bg-mostarda",
-  feijoada: "bg-terracota",
-} as const;
+import { contact, messages, navigation } from "@/content/site";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,17 +38,17 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-6 px-4 sm:px-8 lg:h-20 lg:px-12">
-        <a href="#inicio" className="py-2.5 text-[0.95rem] lg:text-base" aria-label="Doce e Sabor, voltar ao início">
+        <a href="#inicio" className="py-2.5 text-[0.95rem] text-cafe lg:text-base" aria-label="Doce e Sabor, voltar ao início">
           <Wordmark />
         </a>
 
         <nav aria-label="Principal" className="hidden lg:block">
-          <ul className="flex items-center gap-8 text-[0.95rem]">
+          <ul className="flex items-center gap-7 text-[0.92rem] xl:gap-9">
             {navigation.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="relative py-2 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  className="relative py-2 transition-colors duration-300 hover:text-cafe after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   {item.label}
                 </a>
@@ -64,9 +58,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden sm:block">
+          <div className="hidden sm:block lg:hidden xl:block">
             <WhatsAppLink message={messages.geral} className="bg-cafe text-creme hover:bg-verde">
-              Pedir pelo WhatsApp
+              Fale com a Vanda
             </WhatsAppLink>
           </div>
           <button
@@ -105,15 +99,11 @@ export function Header() {
         </div>
 
         <nav aria-label="Menu principal" className="flex flex-1 flex-col justify-center px-6 sm:px-10">
-          <a href="#a-cozinha" className="font-serif text-[2.6rem] leading-tight font-medium">
-            A cozinha
-          </a>
-          <ul className="mt-4 space-y-3">
-            {serviceOrder.map((id) => (
-              <li key={id}>
-                <a href={`#${services[id].anchor}`} className="flex items-center gap-4 py-1.5">
-                  <span aria-hidden="true" className={`size-3.5 shrink-0 rounded-full ${swatch[id]}`} />
-                  <span className="font-serif text-[1.9rem] leading-tight">{services[id].kind}</span>
+          <ul className="space-y-2">
+            {navigation.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} className="block py-1.5 font-serif text-[2.1rem] leading-tight">
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -121,8 +111,8 @@ export function Header() {
         </nav>
 
         <div className="space-y-4 px-6 pb-10 sm:px-10">
-          <WhatsAppLink message={messages.geral} className="w-full bg-mostarda text-cafe hover:bg-creme">
-            Pedir pelo WhatsApp
+          <WhatsAppLink message={messages.geral} className="w-full bg-creme text-cafe hover:bg-linha">
+            Fale com a Vanda
           </WhatsAppLink>
           <a
             href={contact.instagramUrl}

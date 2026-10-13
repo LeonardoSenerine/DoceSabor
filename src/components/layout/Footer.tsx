@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="bg-cafe text-creme">
       <div className="mx-auto max-w-[90rem] px-4 pt-20 pb-28 sm:px-8 lg:px-12 lg:pt-28 lg:pb-12">
         <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <Wordmark className="text-[1.6rem] sm:text-[2rem]" />
             <p className="note mt-6 text-[1.35rem] text-mostarda">{brand.signature}</p>
             <p className="mt-6 max-w-[24rem] text-creme/70">
@@ -19,8 +19,8 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Serviços" className="lg:col-span-2 lg:col-start-7">
-            <h2 className="text-[0.95rem] font-semibold text-creme/60">Serviços</h2>
+          <nav aria-label="Serviços" className="lg:col-span-3 lg:col-start-6">
+            <h2 className="text-[0.95rem] font-semibold text-mostarda">Serviços</h2>
             <ul className="mt-4 space-y-2">
               {serviceOrder.map((id) => (
                 <li key={id}>
@@ -38,7 +38,7 @@ export function Footer() {
           </nav>
 
           <div className="lg:col-span-2">
-            <h2 className="text-[0.95rem] font-semibold text-creme/60">Contato</h2>
+            <h2 className="text-[0.95rem] font-semibold text-mostarda">Contato</h2>
             <ul className="mt-4 space-y-2">
               <li>
                 <a
@@ -63,8 +63,8 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
-            <h2 className="text-[0.95rem] font-semibold text-creme/60">Atendimento</h2>
+          <div className="lg:col-span-3">
+            <h2 className="text-[0.95rem] font-semibold text-mostarda">Atendimento</h2>
             <ul className="mt-4 space-y-1 text-creme/90">
               {contact.serviceArea.map((area) => (
                 <li key={area} className="py-1">
@@ -75,7 +75,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-x-8 gap-y-3 border-t border-creme/15 pt-6 text-[0.9rem] text-creme/60 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mt-20 flex flex-col gap-x-8 gap-y-3 border-t border-creme/15 pt-6 text-[0.9rem] text-mostarda lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col gap-x-8 gap-y-3 sm:flex-row sm:flex-wrap sm:items-center">
             <p>
               © {brand.name}, de {brand.owner}

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { Ficha, Tape } from "@/components/brand/kitchen";
-import { HandRing } from "@/components/brand/marks";
 import { WhatsAppLink } from "@/components/ui/WhatsAppLink";
 import { messages, serviceOrder, services } from "@/content/site";
 
@@ -24,14 +22,8 @@ export default function NotFound() {
 
       <div className="mx-auto grid w-full max-w-[90rem] flex-1 items-center gap-14 px-4 py-16 sm:px-8 lg:grid-cols-12 lg:gap-12 lg:px-12">
         <div className="lg:col-span-7">
-          <div>
-            <Tape tilt={-2}>página não encontrada</Tape>
-          </div>
-          <p aria-hidden="true" className="relative mt-6 inline-block">
-            <span className="display-voice block text-[clamp(7rem,22vw,17rem)] font-semibold text-cafe">404</span>
-            <HandRing weight={1.6} className="pointer-events-none absolute -inset-x-[8%] -inset-y-[4%] size-[116%] -rotate-6 text-terracota" />
-          </p>
-          <h1 className="mt-8 max-w-[34rem] font-serif text-[clamp(2rem,4.2vw,3.4rem)] leading-[1.02] font-medium tracking-[-0.02em] text-balance">
+          <p aria-hidden="true" className="display text-[clamp(7rem,22vw,17rem)] text-terracota">404</p>
+          <h1 className="mt-6 max-w-[34rem] font-serif text-[clamp(2.2rem,4.4vw,3.6rem)] leading-[1.02] text-balance">
             Essa receita não está no caderno.
           </h1>
           <p className="mt-5 max-w-[30rem] text-pretty text-cafe-suave">
@@ -50,17 +42,18 @@ export default function NotFound() {
           </div>
         </div>
 
-        <Ficha kind="sumário" title="Talvez você procure" rule="bg-terracota" className="lg:col-span-4 lg:col-start-9">
-          <ul>
+        <nav aria-label="Talvez você procure" className="lg:col-span-4 lg:col-start-9">
+          <p className="font-serif text-[1.4rem]">Talvez você procure</p>
+          <ul className="mt-5 border-t border-linha">
             {serviceOrder.map((id) => (
-              <li key={id}>
-                <Link href={`/#${services[id].anchor}`} className="font-medium underline-offset-4 hover:underline">
-                  {services[id].kind}
+              <li key={id} className="border-b border-linha">
+                <Link href={`/#${services[id].anchor}`} className="group flex items-baseline gap-4 py-4">
+                  <span className="font-serif text-[1.4rem] transition-colors group-hover:text-cafe">{services[id].kind}</span>
                 </Link>
               </li>
             ))}
           </ul>
-        </Ficha>
+        </nav>
       </div>
     </main>
   );
