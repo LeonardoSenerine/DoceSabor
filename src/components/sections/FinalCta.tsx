@@ -5,16 +5,16 @@ import { whatsappUrl } from "@/lib/whatsapp";
 /** Contato: cada intenção abre o WhatsApp com a mensagem do serviço certo. */
 export function FinalCta() {
   return (
-    <section id="contato" aria-labelledby="contato-title" className="paper py-24 lg:py-36">
+    <section id="contato" aria-labelledby="contato-title" className="paper py-20 sm:py-24 lg:py-36">
       <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
-          <h2 id="contato-title" className="display text-[clamp(4rem,11vw,10.5rem)] text-cafe lg:col-span-6">
+          <h2 id="contato-title" data-split className="display text-[clamp(4rem,11vw,10.5rem)] text-cafe lg:col-span-6">
             Bateu
             <br />
             <span className="pl-[10%]">a fome?</span>
           </h2>
 
-          <div className="lg:col-span-5 lg:col-start-8 lg:self-end">
+          <div data-reveal className="lg:col-span-5 lg:col-start-8 lg:self-end">
             <p className="max-w-[28rem] text-[1.1rem] text-pretty text-cafe-suave">
               Escolha por onde começar. A conversa abre no WhatsApp com a mensagem pronta, é só enviar.
             </p>

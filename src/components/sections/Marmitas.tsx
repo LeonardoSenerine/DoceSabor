@@ -12,16 +12,16 @@ export function Marmitas() {
   const service = services.marmitas;
 
   return (
-    <section id={service.anchor} aria-labelledby="marmitas-title" className="paper py-24 lg:py-32">
+    <section id={service.anchor} aria-labelledby="marmitas-title" className="paper py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
         <header className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
             <Wordmark line={service.line} ruleClassName="bg-verde-medio" className="text-[1.05rem] text-verde" />
-            <h2 id="marmitas-title" className="display mt-10 text-[clamp(3rem,7vw,6.75rem)] text-verde">
+            <h2 id="marmitas-title" data-split className="display mt-10 text-[clamp(3rem,7vw,6.75rem)] text-verde">
               Sabor de casa, do seu jeito.
             </h2>
           </div>
-          <div className="max-w-[28rem] self-end lg:col-span-4 lg:col-start-9">
+          <div data-reveal className="max-w-[28rem] self-end lg:col-span-4 lg:col-start-9">
             <p className="text-[1.1rem] leading-relaxed text-pretty text-cafe-suave">{service.summary}</p>
             <p className="mt-6 border-l-2 border-verde-folha pl-4 font-serif text-[1.25rem] leading-snug text-pretty text-verde">
               {mealMenuNote}
@@ -29,7 +29,7 @@ export function Marmitas() {
           </div>
         </header>
 
-        <div className="mt-16 lg:mt-20">
+        <div data-reveal className="mt-12 sm:mt-16 lg:mt-20">
           <CategoryAccordion categories={mealCategories} />
         </div>
 

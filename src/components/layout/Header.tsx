@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { WhatsAppLink } from "@/components/ui/WhatsAppLink";
 import { contact, messages, navigation } from "@/content/site";
@@ -44,8 +44,8 @@ export function Header() {
 
         <nav aria-label="Principal" className="hidden lg:block">
           <ul className="flex items-center gap-7 text-[0.92rem] xl:gap-9">
-            {navigation.map((item) => (
-              <li key={item.href}>
+            {navigation.map((item, index) => (
+              <li key={item.href} data-menu-item style={{ "--i": index } as CSSProperties}>
                 <a
                   href={item.href}
                   className="relative py-2 transition-colors duration-300 hover:text-cafe after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100"
@@ -81,6 +81,7 @@ export function Header() {
       <dialog
         ref={dialogRef}
         aria-label="Menu"
+        data-menu
         className="m-0 h-dvh max-h-none w-full max-w-none bg-cafe p-0 text-creme backdrop:bg-cafe/40 open:flex open:flex-col"
         onClick={(event) => {
           // Fecha ao tocar num link (navegação por âncora).
@@ -100,8 +101,8 @@ export function Header() {
 
         <nav aria-label="Menu principal" className="flex flex-1 flex-col justify-center px-6 sm:px-10">
           <ul className="space-y-2">
-            {navigation.map((item) => (
-              <li key={item.href}>
+            {navigation.map((item, index) => (
+              <li key={item.href} data-menu-item style={{ "--i": index } as CSSProperties}>
                 <a href={item.href} className="block py-1.5 font-serif text-[2.1rem] leading-tight">
                   {item.label}
                 </a>

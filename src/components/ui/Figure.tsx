@@ -11,13 +11,15 @@ type FigureProps = {
   imgProps?: Record<`data-${string}`, string | boolean>;
   imgClassName?: string;
   preload?: boolean;
+  /** Abre a foto como cortina ao entrar na tela. */
+  reveal?: boolean;
 };
 
 /** Foto em moldura recortada. O aviso de fotos ilustrativas fica no rodapé. */
-export function Figure({ name, sizes, frame = "aspect-[4/5]", className = "", imgProps, imgClassName, preload }: FigureProps) {
+export function Figure({ name, sizes, frame = "aspect-[4/5]", className = "", imgProps, imgClassName, preload, reveal = true }: FigureProps) {
   return (
     <figure className={className}>
-      <Photo name={name} sizes={sizes} tag="none" className={frame} imgProps={imgProps} imgClassName={imgClassName} preload={preload} />
+      <Photo name={name} sizes={sizes} tag="none" className={frame} imgProps={imgProps} imgClassName={imgClassName} preload={preload} reveal={reveal && !preload} />
     </figure>
   );
 }

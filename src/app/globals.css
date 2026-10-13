@@ -187,3 +187,33 @@
     transform: none;
   }
 }
+
+/* Máscara das linhas do SplitText: folga para acentos e descendentes (ç, j, g). */
+.split-line-mask {
+  padding-block: 0.14em;
+  margin-block: -0.14em;
+}
+
+/* Menu do celular: o painel desliza e os itens entram em sequência. */
+.motion-ok dialog[open][data-menu] {
+  animation: menu-in 0.5s var(--ease-cozinha);
+}
+
+.motion-ok dialog[open][data-menu] [data-menu-item] {
+  animation: menu-item 0.7s var(--ease-cozinha) both;
+  animation-delay: calc(var(--i, 0) * 55ms + 120ms);
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-2%);
+  }
+}
+
+@keyframes menu-item {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}

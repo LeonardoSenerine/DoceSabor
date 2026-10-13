@@ -21,7 +21,7 @@ export function CategoryAccordion({ categories }: { categories: MealCategory[] }
   };
 
   return (
-    <ul className="border-t border-linha lg:flex lg:h-[36rem] lg:gap-2 lg:border-t-0">
+    <ul id="categorias" className="border-t border-linha lg:flex lg:h-[36rem] lg:gap-2 lg:border-t-0">
       {categories.map((category, index) => {
         const open = index === active;
         const buttonId = `${baseId}-botao-${index}`;
@@ -60,46 +60,59 @@ export function CategoryAccordion({ categories }: { categories: MealCategory[] }
               </button>
             </h3>
 
-            {/* Foto: sempre visível no desktop (as faixas), só a aberta no celular */}
-            <div className={`${open ? "block" : "hidden"} lg:absolute lg:inset-0 lg:block`}>
-              <Photo
-                name={category.photo}
-                tag="none"
-                sizes="(min-width: 1024px) 60vw, 100vw"
-                className="aspect-[4/3] lg:aspect-auto lg:h-full"
-                imgClassName={`transition-transform duration-[1200ms] ease-(--ease-cozinha) motion-reduce:transition-none ${open ? "lg:scale-100" : "lg:scale-110"}`}
-              />
-              <div
-                aria-hidden="true"
-                className={`absolute inset-0 hidden transition-opacity duration-700 lg:block ${
-                  open
-                    ? "bg-[linear-gradient(to_top,rgb(15_59_38/0.92),rgb(15_59_38/0.35)_45%,transparent_70%)]"
-                    : "bg-verde/50"
-                }`}
-              />
-            </div>
-
+            {/* No celular, foto e texto ficam numa gaveta que abre com altura animada.
+                No desktop, a gaveta some (lg:contents) e a foto vira a faixa. */}
             <div
-              id={panelId}
-              role="region"
-              aria-labelledby={buttonId}
-              hidden={!open}
-              className="pt-5 pb-8 lg:pointer-events-none lg:absolute lg:bottom-0 lg:left-0 lg:z-10 lg:block lg:w-[min(34rem,52vw)] lg:p-8 lg:text-creme lg:motion-safe:animate-[panel-in_0.5s_var(--ease-cozinha)_0.35s_both]"
+              className={`grid transition-[grid-template-rows] duration-500 ease-(--ease-cozinha) motion-reduce:transition-none lg:contents ${
+                open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
             >
-              <p className="hidden font-serif text-[clamp(2.4rem,3.6vw,3.4rem)] leading-none lg:block">{category.name}</p>
-              <p className="max-w-[30rem] text-[1.05rem] text-pretty text-cafe-suave lg:mt-4 lg:text-creme/90">
-                {category.description}
-              </p>
-              {category.notes ? (
-                <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.95rem] text-verde-medio lg:text-verde-folha">
-                  {category.notes.map((note) => (
-                    <li key={note} className="flex items-center gap-2">
-                      <Leaf className="size-3.5 shrink-0" />
-                      {note}
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
+              <div className="min-h-0 overflow-hidden lg:contents">
+                <div className="relative lg:absolute lg:inset-0">
+                  <Photo
+                    name={category.photo}
+                    tag="none"
+                    sizes="(min-width: 1024px) 60vw, 100vw"
+                    className="aspect-[4/3] lg:aspect-auto lg:h-full"
+                    imgClassName={`transition-transform duration-[1200ms] ease-(--ease-cozinha) motion-reduce:transition-none ${
+                      open ? "scale-100" : "scale-110"
+                    }`}
+                  />
+                  <div
+                    aria-hidden="true"
+                    className={`absolute inset-0 hidden transition-opacity duration-700 lg:block ${
+                      open
+                        ? "bg-[linear-gradient(to_top,rgb(15_59_38/0.92),rgb(15_59_38/0.35)_45%,transparent_70%)]"
+                        : "bg-verde/50"
+                    }`}
+                  />
+                </div>
+
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  inert={!open}
+                  className={`pt-5 pb-8 lg:pointer-events-none lg:absolute lg:bottom-0 lg:left-0 lg:z-10 lg:w-[min(34rem,52vw)] lg:p-8 lg:text-creme lg:motion-safe:animate-[panel-in_0.5s_var(--ease-cozinha)_0.35s_both] ${
+                    open ? "" : "lg:hidden"
+                  }`}
+                >
+                  <p className="hidden font-serif text-[clamp(2.4rem,3.6vw,3.4rem)] leading-none lg:block">{category.name}</p>
+                  <p className="max-w-[30rem] text-[1.05rem] text-pretty text-cafe-suave lg:mt-4 lg:text-creme/90">
+                    {category.description}
+                  </p>
+                  {category.notes ? (
+                    <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.95rem] text-verde-medio lg:text-verde-folha">
+                      {category.notes.map((note) => (
+                        <li key={note} className="flex items-center gap-2">
+                          <Leaf className="size-3.5 shrink-0" />
+                          {note}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+              </div>
             </div>
           </li>
         );

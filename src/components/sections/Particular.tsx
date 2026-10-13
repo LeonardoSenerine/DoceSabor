@@ -11,16 +11,16 @@ export function Particular() {
   const service = services.vanda;
 
   return (
-    <section id={service.anchor} aria-labelledby="particular-title" className="paper bg-creme-escuro py-24 lg:py-36">
+    <section id={service.anchor} aria-labelledby="particular-title" className="paper bg-creme-escuro py-20 sm:py-24 lg:py-36">
       <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
         <Wordmark line={service.line} ruleClassName="bg-mostarda" className="text-[1.05rem]" />
 
-        <h2 id="particular-title" className="display mt-10 max-w-[11ch] text-[clamp(3rem,7.4vw,7.5rem)] text-balance">
+        <h2 id="particular-title" data-split className="display mt-10 max-w-[11ch] text-[clamp(3rem,7.4vw,7.5rem)] text-balance">
           {service.title}
         </h2>
 
         <div className="mt-16 grid gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-12">
-          <div className="flex flex-col justify-end lg:col-span-4">
+          <div data-reveal className="flex flex-col justify-end lg:col-span-4">
             <p className="font-serif text-[clamp(1.35rem,2vw,1.7rem)] leading-snug text-pretty">{vanda.intro}</p>
             <WhatsAppLink message={service.message} className="mt-10 self-start bg-mostarda text-cafe hover:bg-cafe hover:text-mostarda">
               {service.cta}
@@ -34,7 +34,7 @@ export function Particular() {
 
         <div className="mt-24 lg:mt-32">
           <h3 className="font-serif text-[1.6rem] leading-tight">Como funciona</h3>
-          <ol className="mt-8 grid gap-10 md:grid-cols-3 md:gap-12">
+          <ol data-reveal className="mt-8 grid gap-10 md:grid-cols-3 md:gap-12">
             {vanda.steps.map((step, index) => (
               <li key={step.title} className="border-t-2 border-mostarda pt-5">
                 <p className="font-serif text-[1.45rem] leading-tight">
