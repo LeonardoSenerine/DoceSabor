@@ -36,7 +36,7 @@ export function Header() {
       } ${
         scrolled
           ? "bg-creme/95 text-cafe shadow-[0_1px_0_var(--color-linha)] backdrop-blur-[2px]"
-          : "bg-transparent text-creme lg:text-cafe" /* sobre a foto do hero, fora do computador */
+          : "bg-transparent text-creme" /* sobre a foto do hero */
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-6 px-4 sm:px-8 lg:h-20 lg:px-12">

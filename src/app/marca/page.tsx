@@ -175,13 +175,13 @@ export default function MarcaPage() {
               <Rule key={id}>
                 <span className="font-semibold">{services[id].kind}.</span>{" "}
                 {id === "marmitas"
-                  ? "Creme e verde; as categorias abrem em sanfona, cada uma com a sua foto."
+                  ? "Abertura em tela cheia com sombra verde; depois as categorias em sanfona, cada uma com a sua foto."
                   : id === "vanda"
-                    ? "Creme escuro e mostarda, título grande e a foto em sangria; o passo a passo em colunas, como uma receita."
-                    : "Foto protagonista em tela cheia com sombra de brasa; fundo brasa e a ficha do evento."}
+                    ? "Abertura com as panelas no fogão; depois o passo a passo em colunas, como uma receita, e as ocasiões ao lado de uma foto de preparo."
+                    : "Abertura em tela cheia que termina em terracota; uma faixa de feijoadas e eventos passando devagar; a ficha do evento."}
               </Rule>
             ))}
-            <Rule>O slogan do hero sobe linha a linha ao carregar. Fora isso, só se move o que a pessoa toca. Tudo parado com movimento reduzido.</Rule>
+            <Rule>Cada seção abre como um capítulo: foto em tela cheia e título no centro, entrando letra por letra. Tudo parado com movimento reduzido.</Rule>
             <Rule>Sem rótulos em caixa alta, sem numeração de seção, sem legendas decorativas.</Rule>
             <Rule>Cantos retos em fotos e blocos. Só os botões são arredondados.</Rule>
           </ul>

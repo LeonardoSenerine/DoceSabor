@@ -1,35 +1,33 @@
 import { Wordmark } from "@/components/brand/Wordmark";
 import { Frost, Leaf, Steam } from "@/components/brand/marks";
+import { Cover } from "@/components/ui/Cover";
 import { WhatsAppLink } from "@/components/ui/WhatsAppLink";
 import { mealCategories, mealMenuNote, mealOrderNote, mealStorage, services } from "@/content/site";
 import { CategoryAccordion } from "./CategoryAccordion";
 
 /**
- * Marmitas congeladas: uma apresentação, não um cardápio. As categorias
- * abrem em sanfona, cada uma com a sua foto; o pedido acontece na conversa.
+ * Marmitas congeladas: abre com a foto em tela cheia; depois, uma
+ * apresentação, não um cardápio. As categorias abrem em sanfona, cada uma
+ * com a sua foto; o pedido acontece na conversa.
  */
 export function Marmitas() {
   const service = services.marmitas;
 
   return (
-    <section id={service.anchor} aria-labelledby="marmitas-title" className="paper py-20 sm:py-24 lg:py-32">
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
-        <header className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-7">
-            <Wordmark line={service.line} className="text-[1.05rem] text-verde" />
-            <h2 id="marmitas-title" data-split className="display mt-10 text-[clamp(3rem,7vw,6.75rem)] text-verde">
-              Sabor de casa, do seu jeito.
-            </h2>
-          </div>
-          <div data-reveal className="max-w-[28rem] self-end lg:col-span-4 lg:col-start-9">
-            <p className="text-[1.1rem] leading-relaxed text-pretty text-cafe-suave">{service.summary}</p>
-            <p className="mt-6 border-l-2 border-verde-folha pl-4 font-serif text-[1.25rem] leading-snug text-pretty text-verde">
-              {mealMenuNote}
-            </p>
-          </div>
-        </header>
+    <section id={service.anchor} aria-labelledby="marmitas-title" className="paper">
+      <Cover
+        photo="marmitas"
+        title={["Sabor de casa,", "do seu jeito."]}
+        titleId="marmitas-title"
+        shade="6 28 17"
+        eyebrow={<Wordmark line={service.line} className="text-[1.05rem]" />}
+      >
+        <p className="max-w-[34rem] text-[1.05rem] leading-relaxed text-pretty text-creme/90 sm:text-[1.15rem]">{service.summary}</p>
+        <p className="max-w-[32rem] font-serif text-[clamp(1.25rem,2vw,1.5rem)] leading-snug text-pretty">{mealMenuNote}</p>
+      </Cover>
 
-        <div data-reveal className="mt-12 sm:mt-16 lg:mt-20">
+      <div className="mx-auto max-w-[90rem] px-4 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+        <div data-reveal>
           <CategoryAccordion categories={mealCategories} />
         </div>
 

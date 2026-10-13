@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    // 75 para fotos de apoio; 85 para as fotos de abertura, em tela cheia.
+    qualities: [75, 85],
     // Fotos provisórias (Unsplash e Pexels). Ao trocar pelas fotos reais em
     // /public, estes padrões podem ser removidos.
     remotePatterns: [

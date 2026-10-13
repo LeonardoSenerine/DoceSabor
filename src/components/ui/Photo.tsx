@@ -14,6 +14,8 @@ type PhotoProps = {
   tagTone?: "light" | "dark";
   /** Abre a foto como cortina ao entrar na tela. */
   reveal?: boolean;
+  /** Qualidade da compressão (75 ou 85, conforme next.config). */
+  quality?: 75 | 85;
   /** Atributos extras repassados à <Image> (ex.: data-parallax). */
   imgProps?: Record<`data-${string}`, string | boolean>;
 };
@@ -39,6 +41,7 @@ export function Photo({
   tagTone = "light",
   imgProps,
   reveal = false,
+  quality = 75,
 }: PhotoProps) {
   const photo: PhotoData = photos[name];
 
@@ -49,6 +52,7 @@ export function Photo({
         alt={photo.alt}
         fill
         sizes={sizes}
+        quality={quality}
         preload={preload}
         fetchPriority={preload ? "high" : undefined}
         className={`grade object-cover ${imgClassName}`}

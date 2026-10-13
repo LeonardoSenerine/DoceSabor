@@ -21,10 +21,11 @@ const EASE = "expo.out";
  * no-preference; sem isso, a página fica no estado final, parada.
  *
  * - Rolagem suave (Lenis) sincronizada ao ScrollTrigger.
+ * - [data-letters="scroll"]: títulos das aberturas entram letra por letra.
  * - [data-split]: títulos sobem linha a linha por trás de uma máscara.
  * - [data-reveal-image]: fotos abrem como cortina, com o zoom assentando.
  * - [data-reveal]: blocos de texto e botões entram logo depois do título.
- * - [data-zoom]: a foto de abertura da feijoada se afasta conforme a rolagem.
+ * - [data-zoom]: as fotos das aberturas se afastam devagar conforme a rolagem.
  *
  * A abertura do hero é feita em CSS (globals.css), para não depender da
  * hidratação.
@@ -65,6 +66,20 @@ export function Motion() {
         });
       });
 
+      /* Títulos das aberturas, letra por letra -------------------- */
+      gsap.utils.toArray<HTMLElement>('[data-letters="scroll"]').forEach((title) => {
+        gsap.from(title.querySelectorAll("[data-char]"), {
+          yPercent: 100,
+          rotate: 7,
+          autoAlpha: 0,
+          transformOrigin: "0% 100%",
+          duration: 1,
+          ease: EASE,
+          stagger: 0.035,
+          scrollTrigger: { trigger: title, start: "top 85%", once: true },
+        });
+      });
+
       /* Fotos em cortina --------------------------------------------- */
       gsap.utils.toArray<HTMLElement>("[data-reveal-image]").forEach((frame) => {
         const img = frame.querySelector("img");
@@ -89,13 +104,13 @@ export function Motion() {
         });
       });
 
-      /* Feijoada: a foto se afasta conforme a rolagem ---------------- */
+      /* Aberturas: a foto se afasta devagar conforme a rolagem -------- */
       gsap.utils.toArray<HTMLElement>("[data-zoom]").forEach((frame) => {
         const img = frame.querySelector("img");
         if (!img) return;
         gsap.fromTo(
           img,
-          { scale: 1.18 },
+          { scale: 1.12 },
           {
             scale: 1,
             ease: "none",

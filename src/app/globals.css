@@ -139,7 +139,7 @@
 
 /* Assinatura do hero: as palavras pequenas sobem inteiras; as grandes,
    letra por letra, com uma leve inclinação que se endireita. */
-[data-letters] > span {
+[data-letters] [data-char] {
   display: inline-block;
 }
 
@@ -149,7 +149,7 @@
   animation-delay: var(--d, 0ms);
 }
 
-.motion-ok [data-letters] > span {
+.motion-ok [data-letters="load"] [data-char] {
   opacity: 0;
   transform: translateY(100%) rotate(7deg);
   transform-origin: 0 100%;
@@ -246,5 +246,12 @@
   from {
     opacity: 0;
     transform: translateY(18px);
+  }
+}
+
+/* Carrossel da feijoada: a faixa (duplicada) anda até a metade e recomeça. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
   }
 }

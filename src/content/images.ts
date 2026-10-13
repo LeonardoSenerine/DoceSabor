@@ -21,9 +21,9 @@ export type Photo = {
 };
 
 const unsplash = (id: string) =>
-  `https://images.unsplash.com/${id}?fm=jpg&q=80&w=1800&fit=max`;
+  `https://images.unsplash.com/${id}?fm=jpg&q=85&w=2600&fit=max`;
 
-const pexels = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1800`;
+const pexels = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=2600`;
 
 export const photos = {
   hero: {
@@ -98,13 +98,21 @@ export const photos = {
     provisional: true,
     focus: "50% 45%",
   },
-  panelaNoFogao: {
-    src: unsplash("photo-1706685835600-fa406f365c2b"),
-    alt: "Panela no fogão de uma cozinha de casa, com o vapor subindo",
-    width: 5982,
-    height: 3992,
+  cozinheiraCapa: {
+    src: pexels(4253132),
+    alt: "Mãos cozinhando em duas panelas no fogão de uma cozinha de casa",
+    width: 4000,
+    height: 6000,
     provisional: true,
-    focus: "50% 55%",
+    focus: "50% 60%",
+  },
+  cozinheiraPreparo: {
+    src: pexels(4252142),
+    alt: "Mãos cortando legumes na tábua, com tigelas de ingredientes picados ao lado",
+    width: 4000,
+    height: 6000,
+    provisional: true,
+    focus: "50% 50%",
   },
   feijoadaPanela: {
     src: pexels(34195320),
@@ -129,6 +137,56 @@ export const photos = {
     height: 6000,
     provisional: true,
     focus: "50% 55%",
+  },
+  /* Carrossel da feijoada: feijoadas e eventos */
+  feijoadaMesaCima: {
+    src: pexels(34195321),
+    alt: "Feijoada vista de cima, com arroz, couve, farofa, laranja e pimenta",
+    width: 6000,
+    height: 4000,
+    provisional: true,
+  },
+  feijoadaLinguica: {
+    src: pexels(34442367),
+    alt: "Feijoada de perto, com linguiça, couve e pimenta",
+    width: 4000,
+    height: 6000,
+    provisional: true,
+  },
+  feijoadaPanelinha: {
+    src: pexels(36048828),
+    alt: "Feijoada servida numa panelinha de metal, com um copo de chá gelado",
+    width: 2250,
+    height: 4000,
+    provisional: true,
+  },
+  eventoServindo: {
+    src: pexels(20488720),
+    alt: "Mãos servindo pratos numa mesa posta para muitas pessoas",
+    width: 4000,
+    height: 6000,
+    provisional: true,
+  },
+  eventoQuintal: {
+    src: pexels(8841611),
+    alt: "Pessoas almoçando juntas numa mesa farta ao ar livre",
+    width: 6000,
+    height: 4000,
+    provisional: true,
+  },
+  eventoGramado: {
+    src: pexels(8841223),
+    alt: "Família reunida em volta da mesa posta no gramado",
+    width: 6000,
+    height: 4000,
+    provisional: true,
+  },
+  eventoMesa: {
+    src: pexels(3758012),
+    alt: "Amigos em volta de uma mesa cheia de pratos e travessas",
+    width: 6000,
+    height: 4000,
+    provisional: true,
   },
 } satisfies Record<string, Photo>;
 
