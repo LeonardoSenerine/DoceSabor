@@ -25,12 +25,25 @@ export function FeijoadaQuote() {
   const id = useId();
   const [audience, setAudience] = useState<Audience>("particular");
   const [error, setError] = useState<string | null>(null);
+  /** Link do WhatsApp da última solicitação, para a confirmação na tela. */
+  const [sentUrl, setSentUrl] = useState<string | null>(null);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     if (!form.checkValidity()) {
-      setError("Preencha nome, e-mail e endereço do evento para montar o pedido.");
+      const labels: Record<string, string> = {
+        nome: "seu nome",
+        email: "um e-mail válido",
+        endereco: "o endereço do evento",
+        convidados: `um número de convidados entre 1 e ${feijoada.maxGuests}`,
+      };
+      const missing = Array.from(form.elements)
+        .filter((el): el is HTMLInputElement => el instanceof HTMLInputElement && !el.validity.valid)
+        .map((el) => labels[el.name])
+        .filter(Boolean);
+      setSentUrl(null);
+      setError(`Para enviar, confira: ${missing.join(", ")}.`);
       form.reportValidity();
       return;
     }
@@ -50,7 +63,9 @@ export function FeijoadaQuote() {
       get("observacoes") ? `Observações: ${get("observacoes")}` : null,
     ].filter((line): line is string => line !== null);
 
-    window.open(whatsappUrl(lines.join("\n")), "_blank", "noopener,noreferrer");
+    const url = whatsappUrl(lines.join("\n"));
+    setSentUrl(url);
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -152,6 +167,19 @@ export function FeijoadaQuote() {
           </p>
         ) : null}
 
+        <div role="status" aria-live="polite">
+          {sentUrl ? (
+            <p className="border-l-2 border-verde-medio pl-4 text-[0.95rem] text-cafe">
+              <strong className="font-semibold">Pronto, abrimos o WhatsApp com os dados do seu evento.</strong> É só
+              tocar em enviar na conversa. Não abriu?{" "}
+              <a href={sentUrl} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-4">
+                Abrir o WhatsApp
+              </a>
+              .
+            </p>
+          ) : null}
+        </div>
+
         <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="submit"
@@ -160,7 +188,9 @@ export function FeijoadaQuote() {
             <WhatsAppGlyph className="size-[1.15em] transition-transform duration-300 group-hover:-translate-y-0.5" />
             Solicite um orçamento
           </button>
-          <p className="text-[0.85rem] text-cafe-suave">Abre o WhatsApp com os dados. Nada fica salvo no site.</p>
+          <p className="text-[0.85rem] text-cafe-suave sm:max-w-[16rem]">
+            A Vanda recebe tudo pelo WhatsApp e combina os detalhes com você. Nada fica salvo no site.
+          </p>
         </div>
       </div>
     </form>

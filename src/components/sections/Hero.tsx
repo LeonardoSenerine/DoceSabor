@@ -51,18 +51,18 @@ export function Hero() {
           <div data-hero-fade className="mt-7 flex flex-col gap-6 lg:mt-0 lg:gap-7">
             <p className="max-w-[26rem] text-[1.02rem] leading-relaxed text-pretty text-cafe-suave sm:text-[1.12rem]">{hero.text}</p>
             <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+              <WhatsAppLink message={messages.geral} className="bg-cafe text-creme hover:bg-verde">
+                {hero.cta}
+              </WhatsAppLink>
               <a
                 href="#a-cozinha"
-                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-cafe px-6 py-3 font-medium text-creme transition-colors duration-300 hover:bg-verde active:translate-y-px"
+                className="group inline-flex min-h-11 items-center gap-2 py-2 font-medium underline decoration-1 underline-offset-[6px] hover:decoration-2"
               >
-                {hero.cta}
+                {hero.secondaryCta}
                 <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 transition-transform duration-300 ease-(--ease-cozinha) group-hover:translate-y-0.5">
                   <path d="M8 2v11M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
-              <WhatsAppLink variant="text" message={messages.geral} className="text-cafe">
-                {hero.secondaryCta}
-              </WhatsAppLink>
             </div>
           </div>
         </div>

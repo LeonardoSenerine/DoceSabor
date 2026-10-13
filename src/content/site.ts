@@ -45,8 +45,10 @@ export const hero = {
   title: ["Feita com", "cuidado."],
   subtitle: ["Servida com", "afeto."],
   text: "Marmitas congeladas, cozinheira particular e feijoada para eventos, pelas mãos de Vanda Camargo. Da refeição que facilita a sua semana à mesa que reúne quem você ama.",
-  cta: "Conheça a cozinha",
-  secondaryCta: "Fale com a Vanda",
+  /** Principal: abre o WhatsApp. */
+  cta: "Fale com a Vanda",
+  /** Secundário: leva à seção da cozinha. */
+  secondaryCta: "Conheça a cozinha",
 } as const;
 
 export type ServiceId = "marmitas" | "vanda" | "feijoada";

@@ -13,7 +13,7 @@ export function Feijoada() {
   const service = services.feijoada;
 
   return (
-    <section id={service.anchor} aria-labelledby="feijoada-title" className="bg-brasa text-creme">
+    <section id={service.anchor} aria-labelledby="feijoada-title" className="bg-barro text-creme">
       {/* Abertura: foto protagonista com sombra sob o texto */}
       <div className="relative isolate flex min-h-[88svh] items-end overflow-hidden lg:min-h-[92svh]">
         <div data-zoom className="absolute inset-0 -z-20">
@@ -26,7 +26,7 @@ export function Feijoada() {
         </div>
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgb(75_23_10/0.97)_0%,rgb(75_23_10/0.8)_30%,rgb(75_23_10/0.25)_62%,rgb(75_23_10/0.05)_100%)] lg:bg-[linear-gradient(to_top,rgb(75_23_10/0.96)_0%,rgb(75_23_10/0.65)_32%,transparent_70%),linear-gradient(to_right,rgb(75_23_10/0.6),transparent_62%)]"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgb(169_50_27)_0%,rgb(120_36_18/0.85)_28%,rgb(75_23_10/0.3)_62%,rgb(75_23_10/0.05)_100%)] lg:bg-[linear-gradient(to_top,rgb(169_50_27)_0%,rgb(120_36_18/0.7)_30%,transparent_70%),linear-gradient(to_right,rgb(75_23_10/0.6),transparent_62%)]"
         />
         <div className="mx-auto w-full max-w-[90rem] px-4 pt-40 pb-12 sm:px-8 lg:px-12 lg:pb-20">
           <Wordmark line={service.line} ruleClassName="bg-mostarda" className="text-[1.05rem]" />
@@ -48,9 +48,16 @@ export function Feijoada() {
       {/* A mesa e a ficha do evento */}
       <div className="mx-auto grid max-w-[90rem] gap-16 px-4 py-20 sm:px-8 lg:grid-cols-12 lg:gap-12 lg:px-12 lg:py-32">
         <div className="lg:col-span-5">
-          <dl data-reveal className="border-t border-creme/20">
-            {feijoada.facts.map((fact) => (
-              <div key={fact.label} className="grid grid-cols-[7.5rem_1fr] gap-4 border-b border-creme/20 py-5">
+          {/* A capacidade, na mesma voz do slogan: a palavra pequena liga, a grande importa */}
+          <p data-reveal className="mb-12">
+            <span className="block font-serif text-[clamp(1.35rem,2.2vw,2rem)] font-light">Para até</span>
+            <span className="display block text-[clamp(3.4rem,6vw,6rem)] text-mostarda-claro">
+              {feijoada.maxGuests} convidados.
+            </span>
+          </p>
+          <dl data-reveal className="border-t border-creme/25">
+            {feijoada.facts.filter((fact) => fact.label !== "Quantos").map((fact) => (
+              <div key={fact.label} className="grid grid-cols-[7.5rem_1fr] gap-4 border-b border-creme/25 py-5">
                 <dt className="note text-[1.15rem] text-mostarda-claro">{fact.label}</dt>
                 <dd className="text-[1.05rem]">{fact.value}</dd>
               </div>
