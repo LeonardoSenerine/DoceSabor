@@ -13,7 +13,7 @@ export function Particular() {
   return (
     <section id={service.anchor} aria-labelledby="particular-title" className="paper bg-creme-escuro py-20 sm:py-24 lg:py-36">
       <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
-        <Wordmark line={service.line} ruleClassName="bg-mostarda" className="text-[1.05rem]" />
+        <Wordmark line={service.line} className="text-[1.05rem]" />
 
         <h2 id="particular-title" data-split className="display mt-10 max-w-[11ch] text-[clamp(3rem,7.4vw,7.5rem)] text-balance">
           {service.title}

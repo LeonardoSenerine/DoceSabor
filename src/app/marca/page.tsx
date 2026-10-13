@@ -80,7 +80,7 @@ export default function MarcaPage() {
             </div>
             <div className="flex aspect-square flex-col items-center justify-center gap-6 bg-papel px-4 text-cafe">
               <Wordmark className="text-[1.6rem]" />
-              <Wordmark className="text-[1rem]" line="Feijoada de Raiz" ruleClassName="bg-terracota" />
+              <Wordmark className="text-[1rem]" line="Feijoada de Raiz" />
             </div>
           </div>
         </Block>
@@ -140,10 +140,10 @@ export default function MarcaPage() {
           <ul className="grid gap-x-10 gap-y-12 sm:grid-cols-2">
             <li>
               <div className="flex h-28 items-center bg-papel px-6">
-                <Wordmark className="text-[1rem]" line="Marmitas congeladas" ruleClassName="bg-verde-medio" />
+                <Wordmark className="text-[1rem]" line="Marmitas congeladas" />
               </div>
               <p className="mt-4 font-semibold">Assinatura da frente</p>
-              <p className="text-[0.95rem] text-cafe-suave">O logotipo com o nome da frente, num fio da sua cor. Abre a seção de cada serviço.</p>
+              <p className="text-[0.95rem] text-cafe-suave">O logotipo com o nome da frente logo abaixo. Abre a seção de cada serviço.</p>
             </li>
             <li>
               <div className="flex h-28 items-center gap-8 bg-papel px-6 text-verde-medio">

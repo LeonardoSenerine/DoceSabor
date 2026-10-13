@@ -29,7 +29,7 @@ export function Feijoada() {
           className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgb(169_50_27)_0%,rgb(120_36_18/0.85)_28%,rgb(75_23_10/0.3)_62%,rgb(75_23_10/0.05)_100%)] lg:bg-[linear-gradient(to_top,rgb(169_50_27)_0%,rgb(120_36_18/0.7)_30%,transparent_70%),linear-gradient(to_right,rgb(75_23_10/0.6),transparent_62%)]"
         />
         <div className="mx-auto w-full max-w-[90rem] px-4 pt-40 pb-12 sm:px-8 lg:px-12 lg:pb-20">
-          <Wordmark line={service.line} ruleClassName="bg-mostarda" className="text-[1.05rem]" />
+          <Wordmark line={service.line} className="text-[1.05rem]" />
           <h2
             id="feijoada-title"
             data-split

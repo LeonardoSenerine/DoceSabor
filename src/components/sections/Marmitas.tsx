@@ -16,7 +16,7 @@ export function Marmitas() {
       <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
         <header className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
-            <Wordmark line={service.line} ruleClassName="bg-verde-medio" className="text-[1.05rem] text-verde" />
+            <Wordmark line={service.line} className="text-[1.05rem] text-verde" />
             <h2 id="marmitas-title" data-split className="display mt-10 text-[clamp(3rem,7vw,6.75rem)] text-verde">
               Sabor de casa, do seu jeito.
             </h2>
