@@ -1,5 +1,5 @@
 /**
- * Conteúdo editável do site da Doce e Sabor.
+ * Conteúdo editável do site da Doce&Sabor.
  *
  * Regra: só entra aqui o que foi confirmado pela marca. Campos marcados com
  * `null` ou listas vazias aguardam informação real e são omitidos (ou trocados
@@ -8,11 +8,11 @@
 import type { PhotoKey } from "./images";
 
 export const brand = {
-  name: "Doce e Sabor",
+  name: "Doce&Sabor",
   owner: "Vanda Camargo",
   signature: "Feita com cuidado. Servida com afeto.",
   description:
-    "Marmitas congeladas, cozinheira particular e buffet de feijoada em Campinas, São Paulo e interior. A cozinha de Vanda Camargo, da refeição que facilita a semana à mesa que reúne quem você ama.",
+    "Marmitas congeladas, personal chef e buffet de feijoada em Bragança Paulista, Itatiba, Campinas e Santa Bárbara d’Oeste. A cozinha da Chef Vanda Camargo, da refeição que facilita a semana à mesa que reúne quem você ama.",
 } as const;
 
 export const contact = {
@@ -20,7 +20,7 @@ export const contact = {
   whatsappDisplay: "+55 11 95238-2566",
   instagramUrl: "https://www.instagram.com/doceesaborfit",
   instagramHandle: "@doceesaborfit",
-  serviceArea: ["Campinas", "Cidade de São Paulo", "Interior de São Paulo"],
+  serviceArea: ["Bragança Paulista", "Itatiba", "Campinas", "Santa Bárbara d’Oeste"],
 } as const;
 
 /** Crédito de desenvolvimento, no rodapé. */
@@ -34,9 +34,9 @@ export const privacyUpdatedAt = "9 de outubro de 2026";
 
 /** Mensagens pré-preenchidas, uma por caminho de contato. */
 export const messages = {
-  geral: "Olá, Vanda! Vim pelo site da Doce e Sabor e gostaria de mais informações.",
-  marmitas: "Olá! Vim pelo site e gostaria de consultar as opções de marmitas congeladas da Doce e Sabor.",
-  vanda: "Olá, Vanda! Gostaria de conversar sobre o atendimento como cozinheira particular.",
+  geral: "Olá, Chef Vanda! Vim pelo site da Doce&Sabor e gostaria de mais informações.",
+  marmitas: "Olá! Vim pelo site e gostaria de consultar as opções de marmitas congeladas da Doce&Sabor.",
+  vanda: "Olá, Chef Vanda! Gostaria de conversar sobre o atendimento de personal chef.",
   feijoada: "Olá! Gostaria de solicitar um orçamento do buffet de Feijoada de Raiz para um evento.",
 } as const;
 
@@ -44,9 +44,9 @@ export const messages = {
 export const hero = {
   title: ["Feita com", "cuidado."],
   subtitle: ["Servida com", "afeto."],
-  text: "Marmitas congeladas, cozinheira particular e feijoada para eventos, pelas mãos de Vanda Camargo. Da refeição que facilita a sua semana à mesa que reúne quem você ama.",
+  text: "Marmitas congeladas, personal chef e feijoada para eventos, pelas mãos da Chef Vanda Camargo. Da refeição que facilita a sua semana à mesa que reúne quem você ama.",
   /** Principal: abre o WhatsApp. */
-  cta: "Fale com a Vanda",
+  cta: "Fale com a Chef",
   /** Secundário: leva à seção da cozinha. */
   secondaryCta: "Conheça a cozinha",
 } as const;
@@ -86,13 +86,13 @@ export const services: Record<ServiceId, Service> = {
   },
   vanda: {
     id: "vanda",
-    anchor: "cozinheira-particular",
+    anchor: "personal-chef",
     line: "Vanda Camargo",
-    kind: "Cozinheira particular",
-    navLabel: "Cozinheira particular",
-    title: "Uma cozinheira na sua casa.",
+    kind: "Personal chef",
+    navLabel: "Personal chef",
+    title: "Uma chef na sua casa.",
     summary:
-      "A Vanda vai até a sua casa e prepara as refeições ali mesmo, na sua cozinha, do jeito que a ocasião pede.",
+      "A Chef Vanda Camargo vai até a sua casa e prepara as refeições ali mesmo, na sua cozinha, do jeito que a ocasião pede.",
     cta: "Converse sobre o atendimento",
     message: messages.vanda,
     photo: "maosNaTabua",
@@ -121,7 +121,7 @@ export const serviceOrder: ServiceId[] = ["marmitas", "vanda", "feijoada"];
 export const kitchen = {
   kicker: "Quem cozinha",
   text: [
-    "Vanda Camargo é cozinheira profissional e a pessoa por trás da Doce e Sabor.",
+    "A Chef Vanda Camargo é a pessoa por trás da Doce&Sabor.",
     "É dela o jeito de cozinhar que aparece em tudo o que a marca faz, das marmitas que vão para o freezer à feijoada servida no seu evento: comida de verdade, feita para estar à mesa.",
   ],
 } as const;
@@ -207,14 +207,14 @@ export const mealStorage = {
 } as const;
 
 /* ------------------------------------------------------------------ */
-/* Vanda Camargo, cozinheira particular                                */
+/* Vanda Camargo, personal chef                                       */
 /* ------------------------------------------------------------------ */
 
 export const vanda = {
   /** Retrato real da Vanda. Enquanto `null`, o site mostra um espaço reservado. */
   portrait: null as { src: string; width: number; height: number } | null,
   intro:
-    "Em vez de você levar a comida para casa, a cozinha vem até você. A Vanda prepara as refeições na sua cozinha, no dia e no horário combinados.",
+    "Em vez de você levar a comida para casa, a cozinha vem até você. A Chef prepara as refeições na sua cozinha, no dia e no horário combinados.",
   steps: [
     {
       title: "Conte o que você precisa",
@@ -225,7 +225,7 @@ export const vanda = {
       text: "O que vai para a mesa, o horário e os valores: tudo combinado direto com ela.",
     },
     {
-      title: "A Vanda cozinha na sua casa",
+      title: "A Chef cozinha na sua casa",
       text: "No dia marcado, ela chega e prepara tudo ali, na hora.",
     },
   ],
@@ -234,7 +234,8 @@ export const vanda = {
     "Um almoço para receber a família",
     "Um jantar especial em casa",
   ],
-  occasionsNote: "Tem outra ocasião em mente? Conte para a Vanda e ela responde se consegue atender.",
+  occasionsNote:
+    "Com certeza! Nós adaptamos o cardápio e a estrutura para qualquer tipo de comemoração. Me conta: qual seria a ocasião e o que você tem em mente? Assim já monto uma proposta personalizada e deliciosa para o seu evento!",
 } as const;
 
 /* ------------------------------------------------------------------ */
@@ -249,7 +250,7 @@ export const feijoada = {
     { label: "Onde", value: "Preparada e servida no local do evento" },
     { label: "Para quem", value: "Festas particulares e eventos de empresas" },
     { label: "Quantos", value: "Até 200 convidados" },
-    { label: "Região", value: "Campinas, São Paulo e interior do estado" },
+    { label: "Região", value: "Bragança Paulista, Itatiba, Campinas e Santa Bárbara d’Oeste" },
   ],
   /** Itens incluídos no buffet (acompanhamentos, equipe, louça etc.): aguardando confirmação. */
   includes: [] as string[],

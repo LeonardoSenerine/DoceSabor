@@ -40,7 +40,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-6 px-4 sm:px-8 lg:h-20 lg:px-12">
-        <a href="#inicio" className="py-2.5 text-[0.95rem] lg:text-base" aria-label="Doce e Sabor, voltar ao início">
+        <a href="#inicio" className="py-2 text-[1rem] lg:text-[1.15rem]" aria-label="Doce&Sabor, voltar ao início">
           <Wordmark />
         </a>
 
@@ -62,7 +62,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <div className="hidden sm:block lg:hidden xl:block">
             <WhatsAppLink message={messages.geral} className="bg-cafe text-creme hover:bg-verde">
-              Fale com a Vanda
+              Fale com a Chef
             </WhatsAppLink>
           </div>
           <button
@@ -115,7 +115,7 @@ export function Header() {
 
         <div className="space-y-4 px-6 pb-10 sm:px-10">
           <WhatsAppLink message={messages.geral} className="w-full bg-creme text-cafe hover:bg-linha">
-            Fale com a Vanda
+            Fale com a Chef
           </WhatsAppLink>
           <a
             href={contact.instagramUrl}

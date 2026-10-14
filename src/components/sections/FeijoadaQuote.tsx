@@ -189,7 +189,7 @@ export function FeijoadaQuote() {
             Solicite um orçamento
           </button>
           <p className="text-[0.85rem] text-cafe-suave sm:max-w-[16rem]">
-            A Vanda recebe tudo pelo WhatsApp e combina os detalhes com você. Nada fica salvo no site.
+            A Chef recebe tudo pelo WhatsApp e combina os detalhes com você. Nada fica salvo no site.
           </p>
         </div>
       </div>

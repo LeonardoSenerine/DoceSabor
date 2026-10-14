@@ -1,43 +1,15 @@
 /**
- * Elementos proprietários da marca.
- *
- * O símbolo nasce do próprio nome: o "e" de Doce e Sabor é a conjunção que
- * junta as coisas — rotina e festa, casa e mesa, quem cozinha e quem come.
- * Ele aparece escrito à mão, dentro de um traço circular que é ao mesmo tempo
- * a borda de um prato visto de cima e o círculo de caneta que se faz num
- * caderno de receitas para marcar o que importa.
+ * Ícones de traço fino da marca, usados só na informação prática
+ * (freezer, geladeira, aquecer). O símbolo da logo fica em LogoMark.tsx.
  */
 import type { SVGProps } from "react";
-
-/** Traço circular imperfeito, com a sobra de caneta no fim. viewBox 0 0 200 200. */
-export const RING_PATH =
-  "M62 30C104 8 170 24 185 80C199 130 160 183 99 186C43 189 11 149 14 99C17 56 54 25 110 21C128 20 142 25 152 32";
-
-/** O "e" cursivo, monolinear. viewBox 0 0 200 200. */
-export const E_PATH =
-  "M74 112C98 117 130 109 137 90C142 76 130 66 114 68C86 72 66 100 68 126C70 147 89 155 109 151C122 148 131 140 139 129";
-
-type MarkProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
-  /** Espessura do traço em unidades do viewBox (200). */
-  weight?: number;
-  title?: string;
-};
-
-export function BrandSymbol({ weight = 9, title = "Doce e Sabor", ...props }: MarkProps) {
-  return (
-    <svg viewBox="0 0 200 200" fill="none" role="img" aria-label={title} {...props}>
-      <path d={RING_PATH} stroke="currentColor" strokeWidth={weight} strokeLinecap="round" />
-      <path d={E_PATH} stroke="currentColor" strokeWidth={weight * 1.15} strokeLinecap="round" />
-    </svg>
-  );
-}
 
 type RingProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
   /** Espessura em px na tela (o traço não escala com o tamanho). */
   weight?: number;
 };
 
-/** Vapor — três fios subindo. Usado para indicar "aquecer". */
+/** Vapor: três fios subindo. Usado para indicar "aquecer". */
 export function Steam({ weight = 1.5, className, ...props }: RingProps) {
   return (
     <svg viewBox="0 0 80 80" fill="none" aria-hidden="true" focusable="false" className={className} {...props}>
@@ -50,7 +22,7 @@ export function Steam({ weight = 1.5, className, ...props }: RingProps) {
   );
 }
 
-/** Floco de gelo simplificado — "guardar no freezer". */
+/** Floco de gelo simplificado: "guardar no freezer". */
 export function Frost({ weight = 1.5, className, ...props }: RingProps) {
   return (
     <svg viewBox="0 0 80 80" fill="none" aria-hidden="true" focusable="false" className={className} {...props}>
@@ -61,7 +33,7 @@ export function Frost({ weight = 1.5, className, ...props }: RingProps) {
   );
 }
 
-/** Folha — "fresco, vai para a geladeira". */
+/** Folha: "fresco, vai para a geladeira". */
 export function Leaf({ weight = 1.5, className, ...props }: RingProps) {
   return (
     <svg viewBox="0 0 80 80" fill="none" aria-hidden="true" focusable="false" className={className} {...props}>

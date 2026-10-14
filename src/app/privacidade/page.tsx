@@ -36,7 +36,7 @@ export default function PrivacidadePage() {
       <main className="paper min-h-screen">
         <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
           <header className="flex h-20 items-center justify-between">
-            <Link href="/" aria-label="Doce e Sabor, voltar ao site" className="py-2.5">
+            <Link href="/" aria-label="Doce&Sabor, voltar ao site" className="py-2.5">
               <Wordmark />
             </Link>
             <Link href="/" className="min-h-11 py-2 font-medium underline underline-offset-4">
@@ -58,8 +58,8 @@ export default function PrivacidadePage() {
           <div className="pb-24">
             <Item title="Quem somos">
               <p>
-                A {brand.name} é a marca gastronômica de {brand.owner}: marmitas congeladas, cozinheira particular e
-                buffet de feijoada, com atendimento em Campinas, São Paulo e interior do estado.
+                A {brand.name} é a marca gastronômica da Chef {brand.owner}: marmitas congeladas, personal chef e
+                buffet de feijoada, com atendimento em Bragança Paulista, Itatiba, Campinas e Santa Bárbara d’Oeste.
               </p>
               <p>
                 Para qualquer assunto sobre seus dados, fale com a gente pelo{" "}

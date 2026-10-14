@@ -2,7 +2,7 @@
 @import "lenis/dist/lenis.css";
 
 /*
- * Doce e Sabor: gastronomia afetiva contemporânea.
+ * Doce&Sabor: gastronomia afetiva contemporânea.
  *
  * Institucional: creme e café, com o mostarda como luz. Cada frente ganha
  * uma cor de acento (verde nas marmitas, mostarda na cozinheira particular,
@@ -36,6 +36,7 @@
 
   --font-serif: var(--font-fraunces), "Georgia", serif;
   --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-logo: var(--font-noto-serif), "Georgia", serif;
 
   --ease-cozinha: cubic-bezier(0.22, 1, 0.36, 1);
 }

@@ -5,7 +5,7 @@ import { WhatsAppLink } from "@/components/ui/WhatsAppLink";
 import { services, vanda } from "@/content/site";
 
 /**
- * Cozinheira particular: abre com as panelas no fogão de casa em tela cheia;
+ * Personal chef: abre com as panelas no fogão de casa em tela cheia;
  * depois, o passo a passo em três colunas e as ocasiões ao lado de uma foto
  * de preparo.
  */
@@ -16,7 +16,7 @@ export function Particular() {
     <section id={service.anchor} aria-labelledby="particular-title" className="paper bg-creme-escuro">
       <Cover
         photo="cozinheiraCapa"
-        title={["Uma cozinheira", "na sua casa."]}
+        title={["Uma chef", "na sua casa."]}
         titleId="particular-title"
         eyebrow={<Wordmark line={service.line} className="text-[1.05rem]" />}
       >

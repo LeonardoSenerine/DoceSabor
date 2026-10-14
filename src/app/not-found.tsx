@@ -14,7 +14,7 @@ export default function NotFound() {
     <main className="paper flex min-h-svh flex-col">
       <div className="mx-auto w-full max-w-[90rem] px-4 sm:px-8 lg:px-12">
         <header className="flex h-20 items-center">
-          <Link href="/" aria-label="Doce e Sabor, voltar ao início" className="py-2.5">
+          <Link href="/" aria-label="Doce&Sabor, voltar ao início" className="py-2.5">
             <Wordmark />
           </Link>
         </header>

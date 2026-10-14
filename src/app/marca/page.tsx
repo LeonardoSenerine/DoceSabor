@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { BrandSymbol, Frost, Leaf, Steam } from "@/components/brand/marks";
+import { LogoMark } from "@/components/brand/LogoMark";
+import { Frost, Leaf, Steam } from "@/components/brand/marks";
 import { Figure } from "@/components/ui/Figure";
 import { brand, serviceOrder, services } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Identidade da marca",
-  description: "Sistema de identidade visual da Doce e Sabor: logotipo, símbolo, cores, tipografia, elementos gráficos, fotografia e movimento.",
+  description: "Sistema de identidade visual da Doce&Sabor: logotipo, símbolo, cores, tipografia, elementos gráficos, fotografia e movimento.",
   robots: { index: false, follow: true },
   alternates: { canonical: "/marca" },
 };
@@ -19,13 +20,13 @@ const swatches: Swatch[] = [
   { name: "Creme", hex: "#FCF1E1", role: "Fundo principal. Predomina em toda a página.", wide: true },
   { name: "Café", hex: "#3B1F0E", role: "Texto, títulos, botões, a seção “A cozinha” e o rodapé (13,5:1 sobre creme).", dark: true, wide: true },
   { name: "Verde", hex: "#0F3B26", role: "Marmitas congeladas: títulos e botões.", dark: true },
-  { name: "Mostarda", hex: "#F2A922", role: "Cozinheira particular e a luz sobre o café." },
+  { name: "Mostarda", hex: "#F2A922", role: "Personal chef e a luz sobre o café." },
   { name: "Terracota", hex: "#D9452B", role: "Feijoada: acentos e tamanhos grandes.", dark: true },
   { name: "Brasa", hex: "#4B170A", role: "Fundo da feijoada e sombra das fotos.", dark: true },
 ];
 
 const support: Swatch[] = [
-  { name: "Creme escuro", hex: "#F3E2C7", role: "Fundo da cozinheira particular" },
+  { name: "Creme escuro", hex: "#F3E2C7", role: "Fundo do personal chef" },
   { name: "Linha", hex: "#E2CCAA", role: "Fios e divisores" },
   { name: "Café suave", hex: "#6E4B33", role: "Texto secundário (6,9:1)", dark: true },
   { name: "Verde médio", hex: "#2E6B47", role: "Ícones e rótulos das marmitas", dark: true },
@@ -70,17 +71,17 @@ export default function MarcaPage() {
           </p>
         </div>
 
-        <Block title="Símbolo e logotipo" intro="O “e” de Doce e Sabor é a conjunção que junta as coisas: rotina e festa, casa e mesa. Escrito à mão dentro de um traço circular, a borda de um prato visto de cima.">
+        <Block title="Símbolo e logotipo" intro="A logo oficial da marca, redesenhada em vetor: o prato com garfo e colher cruzados, preso a uma placa, e Doce & Sabor numa serifa clássica. Nos textos, o nome se escreve Doce&Sabor.">
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="flex aspect-square items-center justify-center bg-cafe">
-              <BrandSymbol className="size-1/2 text-creme" weight={7} />
+              <LogoMark className="w-1/2 text-creme" />
             </div>
             <div className="flex aspect-square items-center justify-center bg-papel text-cafe">
-              <BrandSymbol className="size-1/2" weight={7} />
+              <LogoMark className="w-1/2" />
             </div>
             <div className="flex aspect-square flex-col items-center justify-center gap-6 bg-papel px-4 text-cafe">
-              <Wordmark className="text-[1.6rem]" />
-              <Wordmark className="text-[1rem]" line="Feijoada de Raiz" />
+              <Wordmark className="text-[1.3rem]" tagline />
+              <Wordmark className="text-[0.95rem]" line="Feijoada de Raiz" />
             </div>
           </div>
         </Block>
@@ -163,7 +164,7 @@ export default function MarcaPage() {
             <Figure name="lowCarb" sizes="50vw" frame="aspect-[4/3]" className="col-span-3 mt-16" />
           </div>
           <ul className="mt-10 border-t border-linha">
-            <Rule>Prioridade absoluta para fotos reais da Vanda, da cozinha e dos pratos. As atuais são provisórias.</Rule>
+            <Rule>Prioridade absoluta para fotos reais da Chef, da cozinha e dos pratos. As atuais são provisórias.</Rule>
             <Rule>Nunca fundo infinito, prato flutuando ou cenário de estúdio frio.</Rule>
             <Rule>Uma foto não se repete em duas seções.</Rule>
           </ul>

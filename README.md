@@ -1,6 +1,6 @@
-# Doce e Sabor
+# Doce&Sabor
 
-Site institucional da Doce e Sabor, marca gastronômica de Vanda Camargo: marmitas congeladas, cozinheira particular e buffet Feijoada de Raiz.
+Site institucional da Doce&Sabor, marca gastronômica da Chef Vanda Camargo: marmitas congeladas, personal chef e buffet Feijoada de Raiz.
 
 Next.js 16 (App Router), TypeScript estrito, Tailwind CSS 4, GSAP + ScrollTrigger + SplitText e Lenis.
 

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
+import { DM_Sans, Fraunces, Noto_Serif } from "next/font/google";
 import { brand } from "@/content/site";
 import { siteUrl } from "@/lib/site-url";
 import "./globals.css";
@@ -12,13 +12,21 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+/** A serifa do logotipo oficial ("Doce & Sabor"). Só no logotipo. */
+const notoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const title = `${brand.name} | Marmitas congeladas, cozinheira particular e feijoada`;
+const title = `${brand.name} | Marmitas congeladas, personal chef e feijoada`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -38,13 +46,14 @@ export const metadata: Metadata = {
     "marmita low-carb",
     "marmita vegetariana",
     "kit de marmitas",
-    "cozinheira particular",
-    "cozinheira em casa",
+    "personal chef",
+    "chef em casa",
     "buffet de feijoada",
     "feijoada para eventos",
+    "Bragança Paulista",
+    "Itatiba",
     "Campinas",
-    "São Paulo",
-    "interior de São Paulo",
+    "Santa Bárbara d'Oeste",
     brand.owner,
   ],
   alternates: { canonical: "/" },
@@ -79,9 +88,9 @@ export const metadata: Metadata = {
   appleWebApp: { title: brand.name, statusBarStyle: "default" },
   formatDetection: { telephone: false, email: false, address: false },
   other: {
-    // Área de atendimento confirmada: Campinas, capital e interior de São Paulo.
+    // Área de atendimento confirmada pela marca.
     "geo.region": "BR-SP",
-    "geo.placename": "Campinas, São Paulo",
+    "geo.placename": "Bragança Paulista, Itatiba, Campinas e Santa Bárbara d'Oeste",
   },
 };
 
@@ -101,7 +110,7 @@ const motionScript = `(function(){try{var d=document.documentElement;if(window.m
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${fraunces.variable} ${dmSans.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${fraunces.variable} ${dmSans.variable} ${notoSerif.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: motionScript }} />
       </head>

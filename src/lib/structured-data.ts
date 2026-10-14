@@ -9,14 +9,16 @@ import { siteUrl } from "./site-url";
 export function businessJsonLd() {
   const id = `${siteUrl}/#negocio`;
   const areaServed = [
-    { "@type": "City", name: "Campinas", containedInPlace: { "@type": "State", name: "São Paulo" } },
-    { "@type": "City", name: "São Paulo", containedInPlace: { "@type": "State", name: "São Paulo" } },
-    { "@type": "State", name: "São Paulo" },
+    ...contact.serviceArea.map((name) => ({
+      "@type": "City",
+      name,
+      containedInPlace: { "@type": "State", name: "São Paulo" },
+    })),
   ];
 
   const serviceDescriptions: Record<string, string> = {
     marmitas: "Refeições congeladas: fit, low-carb, vegetarianas, variadas, sopas e saladas frescas, com cardápio que muda sempre.",
-    vanda: "Cozinheira particular que prepara as refeições na residência do cliente.",
+    vanda: "Personal chef que prepara as refeições na residência do cliente.",
     feijoada: `Buffet de feijoada preparado e servido no local do evento, para até ${feijoada.maxGuests} convidados.`,
   };
 

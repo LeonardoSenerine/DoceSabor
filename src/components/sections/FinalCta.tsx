@@ -41,7 +41,7 @@ export function FinalCta() {
             </ul>
             <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
               <WhatsAppLink message={messages.geral} className="bg-cafe text-creme hover:bg-verde">
-                Fale com a Vanda
+                Fale com a Chef
               </WhatsAppLink>
               <a
                 href={contact.instagramUrl}

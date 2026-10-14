@@ -4,7 +4,7 @@
  * Todas as imagens abaixo são PROVISÓRIAS (bancos de imagens Unsplash e
  * Pexels) e
  * aparecem com a marcação "Foto ilustrativa". Nenhuma delas mostra a Vanda,
- * a cozinha ou os pratos reais da Doce e Sabor.
+ * a cozinha ou os pratos reais da Doce&Sabor.
  *
  * Para trocar por uma foto real: coloque o arquivo em /public/fotos,
  * altere `src` para "/fotos/arquivo.jpg", ajuste `width`/`height`

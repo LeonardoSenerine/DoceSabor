@@ -12,10 +12,10 @@ export function Footer() {
       <div className="mx-auto max-w-[90rem] px-4 pt-20 pb-28 sm:px-8 lg:px-12 lg:pt-28 lg:pb-12">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Wordmark className="text-[1.6rem] sm:text-[2rem]" />
+            <Wordmark className="text-[1.5rem] sm:text-[1.8rem]" tagline />
             <p className="note mt-6 text-[1.35rem] text-mostarda">{brand.signature}</p>
             <p className="mt-6 max-w-[24rem] text-creme/70">
-              Marca gastronômica de {brand.owner}. Marmitas congeladas, cozinheira particular e buffet de feijoada.
+              Marca gastronômica da Chef {brand.owner}. Marmitas congeladas, personal chef e buffet de feijoada.
             </p>
           </div>
 
