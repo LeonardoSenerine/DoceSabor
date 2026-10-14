@@ -16,7 +16,7 @@ export function Feijoada() {
     <section
       id={service.anchor}
       aria-labelledby="feijoada-title"
-      className="bg-barro text-creme"
+      className="relative bg-barro text-creme"
     >
       <Cover
         photo="feijoadaPanela"

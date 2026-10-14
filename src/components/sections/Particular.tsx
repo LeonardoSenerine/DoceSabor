@@ -13,7 +13,7 @@ export function Particular() {
   const service = services.vanda;
 
   return (
-    <section id={service.anchor} aria-labelledby="particular-title" className="paper bg-creme-escuro">
+    <section id={service.anchor} aria-labelledby="particular-title" className="paper relative bg-creme-escuro">
       <Cover
         photo="cozinheiraCapa"
         title={["Uma chef", "na sua casa."]}

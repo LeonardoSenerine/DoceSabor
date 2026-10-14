@@ -8,7 +8,7 @@ const hasProvisionalPhotos = Object.values(photos).some((photo) => photo.provisi
 
 export function Footer() {
   return (
-    <footer className="bg-cafe text-creme">
+    <footer className="relative bg-cafe text-creme">
       <div className="mx-auto max-w-[90rem] px-4 pt-20 pb-28 sm:px-8 lg:px-12 lg:pt-28 lg:pb-12">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">

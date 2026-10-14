@@ -26,9 +26,13 @@ export default function Home() {
       </a>
       <Header />
       <main id="conteudo">
-        <Hero />
-        <Cozinha />
-        <Marmitas />
+        {/* As três primeiras seções se empilham como pastas; o bloco limita o
+            efeito, para que elas parem de ficar presas ao fim das Marmitas. */}
+        <div>
+          <Hero />
+          <Cozinha />
+          <Marmitas />
+        </div>
         <Particular />
         <Feijoada />
         <Testimonials />
