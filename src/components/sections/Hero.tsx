@@ -19,7 +19,7 @@ export function Hero() {
   ];
 
   return (
-    <section id="inicio" aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-brasa text-creme">
+    <section id="inicio" data-stack aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-brasa text-creme">
       <div className="absolute inset-0 -z-10">
         <div data-hero-photo className="relative h-full">
           <Photo name="hero" preload quality={85} tag="none" sizes="100vw" className="size-full bg-brasa" />

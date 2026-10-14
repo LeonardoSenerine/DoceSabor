@@ -26,6 +26,8 @@ const EASE = "expo.out";
  * - [data-reveal-image]: fotos abrem como cortina, com o zoom assentando.
  * - [data-reveal]: blocos de texto e botões entram logo depois do título.
  * - [data-zoom]: as fotos das aberturas se afastam devagar conforme a rolagem.
+ * - [data-stack]: hero, A cozinha e a abertura das Marmitas se empilham como
+ *   pastas, presas no topo enquanto a próxima parte sobe por cima.
  *
  * A abertura do hero é feita em CSS (globals.css), para não depender da
  * hidratação.
@@ -119,7 +121,46 @@ export function Motion() {
         );
       });
 
+      /* Seções empilhadas como pastas (o mesmo efeito do SURAMU) -------
+         A seção prende quando o fim dela chega ao fim da tela (assim
+         funciona mesmo se for mais alta que a tela); a parte de baixo
+         encolhe e escurece enquanto a próxima sobe por cima. */
+      const stacks = gsap.utils.toArray<HTMLElement>("[data-stack]");
+      const below = (el: HTMLElement) => (el.nextElementSibling ?? el.parentElement?.nextElementSibling) as HTMLElement | null;
+      const sizeStacks = () => {
+        stacks.forEach((el) => {
+          el.style.transform = "";
+          el.style.removeProperty("--cover");
+          el.style.top = `${Math.min(0, window.innerHeight - el.offsetHeight)}px`;
+          el.classList.add("is-stack");
+        });
+      };
+      const updateStacks = () => {
+        const vh = window.innerHeight;
+        stacks.forEach((el) => {
+          const next = below(el);
+          if (!next || !el.classList.contains("is-stack")) return;
+          const p = Math.min(Math.max(1 - next.getBoundingClientRect().top / vh, 0), 1);
+          el.style.setProperty("--cover", p.toFixed(3));
+          el.style.transform = p > 0 ? `scale(${(1 - p * 0.07).toFixed(4)})` : "";
+        });
+      };
+      const onResize = () => {
+        sizeStacks();
+        updateStacks();
+      };
+      onResize();
+      lenis.on("scroll", updateStacks);
+      window.addEventListener("resize", onResize);
+
       return () => {
+        window.removeEventListener("resize", onResize);
+        stacks.forEach((el) => {
+          el.classList.remove("is-stack");
+          el.style.transform = "";
+          el.style.top = "";
+          el.style.removeProperty("--cover");
+        });
         gsap.ticker.remove(raf);
         lenis.destroy();
       };

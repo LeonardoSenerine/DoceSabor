@@ -16,6 +16,8 @@ type CoverProps = {
   shade?: string;
   /** Cor em que a foto termina embaixo (r g b), para emendar com o fundo da seção. */
   fadeTo?: string;
+  /** Empilha como pasta: fica presa no topo enquanto a próxima parte sobe por cima. */
+  stack?: boolean;
   className?: string;
 };
 
@@ -24,11 +26,11 @@ type CoverProps = {
  * em creme, sobre uma sombra que garante a leitura. A mesma linguagem do
  * hero, para que cada frente abra como um capítulo.
  */
-export function Cover({ photo, title, titleId, eyebrow, children, shade = "43 19 7", fadeTo, className = "" }: CoverProps) {
+export function Cover({ photo, title, titleId, eyebrow, children, shade = "43 19 7", fadeTo, stack = false, className = "" }: CoverProps) {
   const s = (alpha: number) => `rgb(${shade} / ${alpha})`;
 
   return (
-    <div className={`relative isolate flex min-h-[88svh] items-center justify-center overflow-hidden text-center text-creme ${className}`}>
+    <div data-stack={stack || undefined} className={`relative isolate flex min-h-[88svh] items-center justify-center overflow-hidden text-center text-creme ${className}`}>
       <div data-zoom className="absolute inset-0 -z-10">
         <Photo name={photo} tag="none" quality={85} sizes="100vw" className="size-full bg-cafe" />
         <div

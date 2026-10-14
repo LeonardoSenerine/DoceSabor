@@ -249,3 +249,20 @@
     transform: translateY(18px);
   }
 }
+
+/* Seções empilhadas como pastas: a seção fica presa no topo e, enquanto a
+   próxima sobe por cima, encolhe e escurece (escala e --cover via Motion.tsx). */
+[data-stack].is-stack {
+  position: sticky;
+  transform-origin: 50% 30%;
+}
+
+[data-stack].is-stack::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  background: #1c0d05;
+  opacity: calc(var(--cover, 0) * 0.6);
+  pointer-events: none;
+}

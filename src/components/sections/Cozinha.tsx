@@ -11,7 +11,7 @@ import { brand, kitchen, messages } from "@/content/site";
  */
 export function Cozinha() {
   return (
-    <section id="a-cozinha" aria-labelledby="cozinha-title" className="bg-cafe">
+    <section id="a-cozinha" data-stack aria-labelledby="cozinha-title" className="relative bg-cafe">
       <Cover photo="maosNaTabua" title={[`${brand.owner}.`]} titleId="cozinha-title">
         <p className="max-w-[36rem] font-serif text-[clamp(1.3rem,2.2vw,1.7rem)] leading-snug text-pretty">{kitchen.text[0]}</p>
         <p className="max-w-[34rem] text-[1.05rem] leading-relaxed text-pretty text-creme/90 sm:text-[1.12rem]">{kitchen.text[1]}</p>

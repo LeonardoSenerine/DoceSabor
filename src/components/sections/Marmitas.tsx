@@ -14,18 +14,20 @@ export function Marmitas() {
   const service = services.marmitas;
 
   return (
-    <section id={service.anchor} aria-labelledby="marmitas-title" className="paper">
+    <section id={service.anchor} aria-labelledby="marmitas-title" className="paper relative">
       <Cover
         photo="marmitas"
         title={["Sabor de casa,", "do seu jeito."]}
         titleId="marmitas-title"
         shade="6 28 17"
+        stack
         eyebrow={<Wordmark line={service.line} className="text-[1.05rem]" />}
       >
         <p className="max-w-[34rem] text-[1.05rem] leading-relaxed text-pretty text-creme/90 sm:text-[1.15rem]">{service.summary}</p>
         <p className="max-w-[32rem] font-serif text-[clamp(1.25rem,2vw,1.5rem)] leading-snug text-pretty">{mealMenuNote}</p>
       </Cover>
 
+      <div className="paper relative bg-creme">
       <div className="mx-auto max-w-[90rem] px-4 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
         <div data-reveal>
           <CategoryAccordion categories={mealCategories} />
@@ -64,6 +66,7 @@ export function Marmitas() {
             </ul>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
