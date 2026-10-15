@@ -19,6 +19,7 @@ Abra http://localhost:3000. A página `/marca` documenta o sistema de identidade
 - `src/content/images.ts` — fotografias. As atuais são provisórias (Unsplash) e aparecem marcadas como "Foto ilustrativa".
 - `src/app/globals.css` — tokens de cor e tipografia, estados iniciais do movimento.
 - `src/components/motion/Motion.tsx` — coreografia de animação (respeita `prefers-reduced-motion`).
+- `src/app/og-cover/page.tsx` — arte da capa de link (WhatsApp, Instagram, redes). Com `npm run dev` rodando, `npm run og` captura a página e salva `src/app/opengraph-image.jpg` e `twitter-image.jpg`.
 - `src/components/motion/Parallax.tsx` — parallax das fotografias (translate3d, só em telas a partir de 1024px).
 
 ## Pendências de conteúdo

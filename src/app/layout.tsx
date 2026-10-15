@@ -68,6 +68,7 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  // Imagem da prévia: src/app/opengraph-image.jpg e twitter-image.jpg (gerar com `npm run og`)
   openGraph: {
     type: "website",
     locale: "pt_BR",
