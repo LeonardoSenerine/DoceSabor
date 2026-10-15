@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { FORK_PATH, SPOON_PATH } from "@/components/brand/LogoMark";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { brand } from "@/content/site";
 
@@ -14,24 +13,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-/** O prato da logo em tamanho grande, sobre um disco bege (o fundo da logo original). */
-function Plate({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="-50 -50 100 100" fill="none" aria-hidden="true" className={className}>
-      <circle r="49" fill="#E3CAAC" />
-      <g className="text-cafe">
-        <circle r="37" stroke="currentColor" strokeWidth="6" />
-        <path d="M-21.5 -12.5 A25 25 0 0 1 21.5 -12.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-        <path d="M21.5 12.5 A25 25 0 0 1 -21.5 12.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-        <circle cx="-25" r="2.3" stroke="currentColor" strokeWidth="1.8" />
-        <circle cx="25" r="2.3" stroke="currentColor" strokeWidth="1.8" />
-        <path d={FORK_PATH} fill="currentColor" transform="rotate(-42)" />
-        <path d={SPOON_PATH} fill="currentColor" transform="rotate(42)" />
-      </g>
-    </svg>
-  );
-}
-
 export default function OgCover() {
   if (process.env.NODE_ENV === "production") notFound();
 
@@ -39,16 +20,18 @@ export default function OgCover() {
     // Cobre o resto da página: a captura pega só este quadro de 1200x630
     <div className="fixed inset-0 z-[100] bg-cafe">
       <div id="og" className="relative h-[630px] w-[1200px] overflow-hidden bg-cafe text-creme">
-        {/* Brilho mostarda atrás do prato */}
+        {/* Brilho mostarda atrás da logo */}
         <div className="absolute top-[40px] right-[-60px] size-[620px] rounded-full bg-mostarda/25 blur-[110px]" />
 
-        {/* O prato da logo, cortado na borda, no lugar da foto */}
-        <Plate className="absolute top-[22px] right-[-150px] size-[586px] rotate-[-8deg] drop-shadow-[0_30px_50px_rgba(0,0,0,0.45)]" />
+        {/* A logo oficial, em café sobre o bege da logo original, num disco */}
+        <div className="absolute top-[35px] right-[-50px] grid size-[560px] place-items-center rounded-full bg-[#E3CAAC] pr-[90px] shadow-[0_30px_60px_rgba(0,0,0,0.45)] ring-[14px] ring-creme/10">
+          <Wordmark tagline className="text-[54px] text-cafe" />
+        </div>
 
         {/* Painel de texto */}
         <div className="relative flex h-full w-[720px] flex-col justify-center pb-[14px] pl-[72px]">
-          <Wordmark tagline className="text-[40px] text-creme" />
-          <p className="mt-[42px] font-serif text-[74px] leading-[1.02] tracking-[-0.01em]">Feita com cuidado.</p>
+          <p className="text-[20px] font-semibold tracking-[0.16em] text-mostarda uppercase">Chef {brand.owner}</p>
+          <p className="mt-[22px] font-serif text-[74px] leading-[1.02] tracking-[-0.01em]">Feita com cuidado.</p>
           <p className="font-serif text-[74px] leading-[1.02] tracking-[-0.01em] text-mostarda italic">
             Servida com afeto.
           </p>
@@ -56,7 +39,7 @@ export default function OgCover() {
             Marmitas congeladas · Personal chef · Feijoada
           </p>
           <p className="mt-[12px] text-[18px] font-semibold tracking-[0.14em] text-mostarda uppercase">
-            Chef {brand.owner} · Bragança Paulista e região
+            Bragança Paulista · Itatiba · Campinas
           </p>
         </div>
 
