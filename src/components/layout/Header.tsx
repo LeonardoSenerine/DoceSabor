@@ -35,7 +35,7 @@ export function Header() {
         tucked ? "-translate-y-full" : "translate-y-0"
       } ${
         scrolled
-          ? "bg-creme/95 text-cafe shadow-[0_1px_0_var(--color-linha)] backdrop-blur-[2px]"
+          ? "bg-creme/95 text-cafe shadow-[0_1px_0_var(--color-linha)]"
           : "bg-transparent text-creme" /* sobre a foto do hero */
       }`}
     >

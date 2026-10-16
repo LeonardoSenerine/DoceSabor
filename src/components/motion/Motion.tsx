@@ -127,39 +127,70 @@ export function Motion() {
          encolhe e escurece enquanto a próxima sobe por cima. */
       const stacks = gsap.utils.toArray<HTMLElement>("[data-stack]");
       const below = (el: HTMLElement) => (el.nextElementSibling ?? el.parentElement?.nextElementSibling) as HTMLElement | null;
+      const pairs = stacks.flatMap((el) => {
+        const next = below(el);
+        return next ? [{ el, next }] : [];
+      });
+
+      // Com animação ligada à rolagem, a escala e o véu rodam no compositor,
+      // em sincronia com o dedo; o JS só entra onde não há suporte.
+      const cssStack = CSS.supports("animation-timeline", "view()") && CSS.supports("timeline-scope", "--a");
+      const scope = document.querySelector<HTMLElement>("main");
+      if (cssStack && scope) {
+        scope.style.setProperty("timeline-scope", pairs.map((_, i) => `--stack-${i}`).join(", "));
+        pairs.forEach(({ el, next }, i) => {
+          next.style.setProperty("view-timeline-name", `--stack-${i}`);
+          el.style.setProperty("--stack-tl", `--stack-${i}`);
+          el.classList.add("is-css-stack");
+        });
+      }
+
+      // A seção prende quando o fim dela chega ao fim da tela. Só recalcula
+      // quando a largura ou a altura da seção mudam: no celular, a barra de
+      // endereço some na primeira rolagem e mudar o ponto de parada ali dava
+      // um tranco logo no começo da página.
+      let width = 0;
       const sizeStacks = () => {
+        width = window.innerWidth;
         stacks.forEach((el) => {
-          el.style.transform = "";
-          el.style.removeProperty("--cover");
           el.style.top = `${Math.min(0, window.innerHeight - el.offsetHeight)}px`;
           el.classList.add("is-stack");
         });
       };
       const updateStacks = () => {
+        if (cssStack) return;
         const vh = window.innerHeight;
-        stacks.forEach((el) => {
-          const next = below(el);
-          if (!next || !el.classList.contains("is-stack")) return;
-          const p = Math.min(Math.max(1 - next.getBoundingClientRect().top / vh, 0), 1);
+        // Lê todas as posições antes de escrever, para não forçar layout a cada seção.
+        const progress = pairs.map(({ next }) => Math.min(Math.max(1 - next.getBoundingClientRect().top / vh, 0), 1));
+        pairs.forEach(({ el }, i) => {
+          const p = progress[i];
           el.style.setProperty("--cover", p.toFixed(3));
           el.style.transform = p > 0 ? `scale(${(1 - p * 0.07).toFixed(4)})` : "";
         });
       };
+      sizeStacks();
+      updateStacks();
+      lenis.on("scroll", updateStacks);
       const onResize = () => {
+        if (window.innerWidth === width) return;
         sizeStacks();
         updateStacks();
       };
-      onResize();
-      lenis.on("scroll", updateStacks);
       window.addEventListener("resize", onResize);
+      const heights = new ResizeObserver(() => sizeStacks());
+      stacks.forEach((el) => heights.observe(el));
 
       return () => {
         window.removeEventListener("resize", onResize);
+        heights.disconnect();
+        scope?.style.removeProperty("timeline-scope");
+        pairs.forEach(({ next }) => next.style.removeProperty("view-timeline-name"));
         stacks.forEach((el) => {
-          el.classList.remove("is-stack");
+          el.classList.remove("is-stack", "is-css-stack");
           el.style.transform = "";
           el.style.top = "";
           el.style.removeProperty("--cover");
+          el.style.removeProperty("--stack-tl");
         });
         gsap.ticker.remove(raf);
         lenis.destroy();

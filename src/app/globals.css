@@ -251,7 +251,9 @@
 }
 
 /* Seções empilhadas como pastas: a seção fica presa no topo e, enquanto a
-   próxima sobe por cima, encolhe e escurece (escala e --cover via Motion.tsx). */
+   próxima sobe por cima, encolhe e escurece. Onde o navegador tem animação
+   ligada à rolagem, o efeito roda no compositor, colado ao dedo; nos outros,
+   Motion.tsx calcula escala e --cover a cada quadro. */
 [data-stack].is-stack {
   position: sticky;
   transform-origin: 50% 30%;
@@ -265,4 +267,31 @@
   background: #1c0d05;
   opacity: calc(var(--cover, 0) * 0.6);
   pointer-events: none;
+}
+
+/* --stack-tl é a linha do tempo da parte de baixo (definida em Motion.tsx):
+   vai de quando ela aparece no pé da tela até chegar ao topo. */
+[data-stack].is-stack.is-css-stack {
+  animation: stack-shrink linear both;
+  animation-timeline: var(--stack-tl);
+  animation-range: cover 0% cover 100vh;
+}
+
+[data-stack].is-stack.is-css-stack::after {
+  opacity: 0;
+  animation: stack-veil linear both;
+  animation-timeline: var(--stack-tl);
+  animation-range: cover 0% cover 100vh;
+}
+
+@keyframes stack-shrink {
+  to {
+    transform: scale(0.93);
+  }
+}
+
+@keyframes stack-veil {
+  to {
+    opacity: 0.6;
+  }
 }
